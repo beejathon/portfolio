@@ -1,5 +1,6 @@
 import React from "react";
 import notbadreads from '../assets/notbadreads.gif'
+import shop from '../assets/shop.gif'
 import waldo from '../assets/waldo.gif'
 import battleship from '../assets/battleship.gif'
 import todo from '../assets/todo.gif'
@@ -8,7 +9,7 @@ import linkIcon from '../assets/open_in_new.svg'
 export const Projects = () => {
   return (
     <div className="projects">
-      <h2 className="subtitle">My work</h2>
+      <h2 className="heading">My work</h2>
       {/* project card */}
       <div className="card">
         <img src={notbadreads} alt="" />
@@ -59,7 +60,7 @@ export const Projects = () => {
       </div>
       {/* project card */}
       <div className="card">
-        <img src={battleship} alt="" />
+        <img src={shop} alt="" />
         <div className="card-header">
           <h3>The Croc Pit</h3>
           <div className="card-links">
@@ -77,7 +78,7 @@ export const Projects = () => {
         <div className="card-tools">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="" />
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg" alt="" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg" alt=""/>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg" alt="" />
         </div>
       </div>
       {/* project card */}
