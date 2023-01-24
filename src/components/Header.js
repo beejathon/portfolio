@@ -28,16 +28,16 @@ export const Header = () => {
         <Fade right cascade duration={2000} delay={2000}>
           <section>
             <p>
-              My journey to becoming a self-taught web developer has been one of the most challenging and fulfilling things I've undertaken. With my humanities degree and six years as an educator, the transition to the world of programming felt contradictory at first. But as I spent more time building and learning new technology, the more I found these two aspects of my intellectual and creative life complementing each other.
+              The journey to becoming a self-taught web developer has been as difficult as it has been fulfilling. With my humanities degree and six years as an educator, the transition to the world of programming felt contradictory at first. But as I spent more time building and learning new technology, the more I found these two aspects of my intellectual and creative life complementing each other.
             </p>
             <p>
-              As a former Math and English teacher, I bring a sensitvity to language, logic and structure that has not only helped me to read and write code but also to communicate abstract concepts in concrete, practical terms.
+              As a former Math and English teacher, I bring a sensitvity to language, logic and structure that has not only helped me to read and write code but also to communicate abstract or technical concepts to non-technical audiences. I've also found the iterative improvements in the software development life cycle to be a familiar approach, not dissimilar to continuous updates to curriculum or lesson material.
             </p>
             <p>
-              My focus so far has been front-end development in React with the ultimate goal of building projects using the MERN stack. That said, I am constantly learning and improving and am fully willing and able to dive into any tech-stack out there. 
+              My focus so far has been front-end development in React. Currently, I have started exploring Node.js and Express with the goal of building with the MERN stack. That said, I am constantly learning and improving and am fully willing and able to dive head first into any tech-stack. 
             </p>
             <p>
-              Before moving to Glasgow last year I lived in Hanoi, Vietnam and am originally from the Bay Area, California. Having lived and worked in different places I feel I can integrate quickly into various teams and office cultures. I'm also a husband and new father and am excited to build a life here in the UK with my family.
+              Before moving to Glasgow I lived in Hanoi, Vietnam and am originally from the Bay Area, California. Having lived and worked in different places I feel I can integrate and adapt to a variety of workplaces and company cultures. I'm also a husband and new father and am excited to build a life here in the UK with my family.
             </p>
           </section>
         </Fade>
