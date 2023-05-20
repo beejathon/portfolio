@@ -1,4 +1,5 @@
 import React from "react";
+import galore from '../assets/galore.gif'
 import notbadreads from '../assets/notbadreads.gif'
 import shop from '../assets/shop.gif'
 import waldo from '../assets/waldo.gif'
@@ -10,6 +11,29 @@ export const Projects = () => {
   return (
     <div className="projects">
       <h2 className="heading">My work</h2>
+      {/* project card */}
+      <div className="card">
+        <img src={galore} alt="" />
+        <div className="card-header">
+          <h3>galore</h3>
+          <div className="card-links">
+            <a href="https://github.com/beejathon/galore-theme-test" target="_blank" rel="noreferrer">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="" />            
+            </a>
+            <a href="https://galore-theme-test.myshopify.com/" target="_blank" rel="noreferrer">
+              <img src={linkIcon} alt='' />
+            </a>
+          </div>
+        </div>
+        <div className="card-body">
+          <p>A Shopify storefront developed for a start up company focused on circular fashion. Primarily front-end focused, translating a Figma design into HTML/SCSS and integrating Shopify's Liquid templating language.</p>
+        </div>
+        <div className="card-tools">
+          <img width="48" height="48" src="https://img.icons8.com/color/48/shopify.png" alt="shopify"/>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg" alt="" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" />
+        </div>
+      </div>
       {/* project card */}
       <div className="card">
         <img src={notbadreads} alt="" />
