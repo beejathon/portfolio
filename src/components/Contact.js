@@ -8,7 +8,7 @@ export const Contact = () => {
         Contact me
       </h2>
       <section>
-        <p className="contact-text">Please get in touch if you think our work could be mutually beneficial!</p>
+        <p className="contact-text">Below you will find links to my e-mail, github and linkedin profile as well as an up to date copy of my CV. Please don't hesitate to contact me if you think our work could be mutually beneficial!</p>
         <div className="contact-links">
           <a href="mailto:bjpaiz@gmail.com">
             <span class="material-icons md-48 md-light">email</span>

@@ -31,7 +31,7 @@ export const Projects = () => {
         <div className="card-tools">
           <img width="48" height="48" src="https://img.icons8.com/color/48/shopify.png" alt="shopify"/>
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg" alt="" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" alt=" "/>
         </div>
       </div>
       {/* project card */}
