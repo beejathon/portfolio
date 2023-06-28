@@ -1,0 +1,30 @@
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+textarea {
+  max-width: 100%;
+  max-height: fit-content;
+  resize: vertical;
+}
+
+.comment-form > button {
+  margin: 0.5rem;
+  width: fit-content;
+  align-self: center;
+  padding: 10px 40px;
+  gap: 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+  background: #2e5e5f;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  box-shadow: none;
+  border: none;
+  outline: none;
+}

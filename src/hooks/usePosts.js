@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 const Context = React.createContext(null);
 
@@ -6,8 +6,7 @@ const Context = React.createContext(null);
 export const PostsProvider = ({ children }) => {
   const [posts, setPosts] = useState();
 
-
-  useEffect(async () => {
+  useEffect(() => {
     const uri = 'https://blog-boyz.up.railway.app/api';
     fetch(`${uri}/posts`, {
       method: 'GET',
@@ -26,12 +25,14 @@ export const PostsProvider = ({ children }) => {
 }
 
 //custom hook
-export const usePosts = () => {
-  const ctx = React.useContext(Context);
+// export const usePosts = () => {
+//   const ctx = useContext(Context);
 
-  if (!ctx) {
-    throw new Error("usePosts must be used within the PostsProvider");
-  }
+//   if (!ctx) {
+//     throw new Error("usePosts must be used within the PostsProvider");
+//   }
 
-  return ctx;
-}
+//   return ctx;
+// }
+
+export const usePosts = () => useContext(Context);

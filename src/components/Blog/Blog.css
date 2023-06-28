@@ -1,0 +1,54 @@
+.blog {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.sign-in-link {
+  display: flex;
+  justify-content: flex-end;
+  text-decoration: none;
+}
+
+.sign-in-link > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.post-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.posts {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap-reverse;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+button {
+  margin: 0.5rem;
+  width: fit-content;
+  align-self: center;
+  padding: 5px 30px;
+  gap: 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+  background: #2e5e5f;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  box-shadow: none;
+  border: none;
+  outline: none;
+}
+
+button:hover {
+  color:black;
+  background-color: #c5d6d6;
+}

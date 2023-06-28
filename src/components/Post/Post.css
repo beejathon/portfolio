@@ -1,0 +1,47 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.post-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.post-title {
+  line-height: 24px;
+}
+
+.post-subtitle {
+  line-height: 12px;
+}
+
+.post-content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.post-content > p > img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.post-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.post-footer > h2 {
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+.like-btn {
+  cursor: pointer;
+}

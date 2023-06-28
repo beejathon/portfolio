@@ -1,0 +1,23 @@
+.forms-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 60vh;
+  width: 80vw;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.sign-in-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  width: 100%;
+  gap: 0.25rem;
+}
+
+@media screen and (min-width: 800px) {
+  .forms-container {
+    width: 20vw;
+  }
+}

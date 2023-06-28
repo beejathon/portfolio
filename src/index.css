@@ -47,6 +47,7 @@ header {
   margin: auto;
   height: 240px;
   box-shadow: 4px 4px 8px 0px rgba(0,0,0,0.46);
+  border-radius: 2px;
 }
 
 .title {
@@ -150,7 +151,7 @@ nav a {
   height: 30px;
 }
 
-.card-links {
+.card-links {width: 100%;
   display: flex;
   flex-direction: row;
   gap: 0.3rem;
@@ -254,7 +255,6 @@ nav a {
     justify-content: center;
     gap: 3rem;
     font-size: 20px;
-
   }
 
   .contact {
