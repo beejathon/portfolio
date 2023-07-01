@@ -9,6 +9,7 @@
   display: flex;
   justify-content: flex-end;
   text-decoration: none;
+  margin-bottom: -1rem;
 }
 
 .sign-in-link > a {
@@ -24,31 +25,38 @@
 .posts {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap-reverse;
-  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 1.5rem;
   padding: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 button {
-  margin: 0.5rem;
-  width: fit-content;
-  align-self: center;
-  padding: 5px 30px;
+  padding: 6px 20px;
   gap: 10px;
+  width: fit-content;
+  height: auto;
   font-size: 14px;
   text-transform: uppercase;
-  background: #2e5e5f;
+  background: #000000;
   color: white;
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
   cursor: pointer;
   text-decoration: none;
   display: flex;
   justify-content: center;
+  align-items: center;
   box-shadow: none;
-  border: none;
+  border: 1px solid white;
   outline: none;
 }
 
 button:hover {
   color:black;
-  background-color: #c5d6d6;
+  background-color: white;
+  border: 1px solid black;
 }

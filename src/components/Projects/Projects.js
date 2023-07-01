@@ -1,16 +1,43 @@
 import React from "react";
-import galore from '../assets/galore.gif'
-import notbadreads from '../assets/notbadreads.gif'
-import shop from '../assets/shop.gif'
-import waldo from '../assets/waldo.gif'
-import battleship from '../assets/battleship.gif'
-import todo from '../assets/todo.gif'
-import linkIcon from '../assets/open_in_new.svg'
+import blog from '../../assets/blog.gif'
+import galore from '../../assets/galore.gif'
+import notbadreads from '../../assets/notbadreads.gif'
+import shop from '../../assets/shop.gif'
+import waldo from '../../assets/waldo.gif'
+import battleship from '../../assets/battleship.gif'
+import todo from '../../assets/todo.gif'
+import linkIcon from '../../assets/open_in_new.svg'
+import "./Projects.css"
 
 export const Projects = () => {
   return (
-    <div className="projects">
-      <h2 className="heading">My work</h2>
+    <div className="projects" id="projects">
+      <h2 className="heading">recent projects</h2>
+      {/* project card */}
+      <div className="card">
+        <img src={blog} alt="" />
+        <div className="card-header">
+          <h3>Blog API</h3>
+          <div className="card-links">
+            <a href="https://github.com/beejathon/blog-api" target="_blank" rel="noreferrer">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="" />            
+            </a>
+            <a href="https://beejathon.github.io/portfolio/" target="_blank" rel="noreferrer">
+              <img src={linkIcon} alt='' />
+            </a>
+          </div>
+        </div>
+        <div className="card-body">
+          <p>A REST API backend serving JSON for the blog section of this site. Built with two front-ends: one client for reading and commenting and a second CMS for publishing and editing posts/comments.</p>
+        </div>
+        <div className="card-tools">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original-wordmark.svg" alt="" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original-wordmark.svg" alt="" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg" alt="" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="" />
+        </div>
+      </div>
       {/* project card */}
       <div className="card">
         <img src={galore} alt="" />
@@ -26,10 +53,10 @@ export const Projects = () => {
           </div>
         </div>
         <div className="card-body">
-          <p>A Shopify storefront developed for a start up company focused on circular fashion. Primarily front-end focused, translating a Figma design into HTML/SCSS and integrating Shopify's Liquid templating language.</p>
+          <p>A custom Shopify store theme for circular fashion company galore. Translated Figma design into HTML/SCSS and Shopify's Liquid templating language.</p>
         </div>
         <div className="card-tools">
-          <img width="48" height="48" src="https://img.icons8.com/color/48/shopify.png" alt="shopify"/>
+          <img src="https://img.icons8.com/color/48/shopify.png" alt="shopify"/>
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg" alt="" />
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" alt=" "/>
         </div>
@@ -49,7 +76,7 @@ export const Projects = () => {
           </div>
         </div>
         <div className="card-body">
-          <p>A goodreads clone where users can search a database of books, organize a personal library, write reviews and interact with other users.</p>
+          <p>A goodreads clone where users can search a database of books, organize a personal library, write reviews and interact with other users. Built with React and utilizes Firebase for backend-as-a-service.</p>
         </div>
         <div className="card-tools">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="" />

@@ -1,75 +1,93 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect } from "react";
 import { usePost } from "../../hooks/usePost";
-import { useComments } from "../../hooks/useComments";
-import { Comment } from "../Comment/Comment";
 import { useParams } from "react-router-dom";
-import { CommentForm } from "../CommentForm/CommentForm";
 import likeBtn from "../../assets/like.png"
 import likedBtn from "../../assets/liked.png"
 import "./Post.css"
 import { useAuthToken } from "../../hooks/useAuthToken";
 import { useLikes } from "../../hooks/useLikes";
-import { useAuthUser } from "../../hooks/useAuthUser";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { CommentSection } from "../CommentSection/CommentSection";
 
 export const Post = () => {
   const post = usePost(useParams());
-  const comments = useComments(useParams());
-  const likes = useLikes(useParams());
-  const user = useAuthUser();
+  const { 
+    liked, 
+    setLiked, 
+    likeId, 
+    setLikeId,
+    setPostId,
+  } = useLikes();
   const token = useAuthToken();
-  const [liked, setLiked] = useState(false);  
-  const likeId = useRef(null);
   
+  const notify = (message) => {
+    toast(message, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+      progress: undefined,
+      theme: "dark",
+    })
+  };
+
   const uri = 'https://blog-boyz.up.railway.app/api';
   const addLike = async () => {
-    fetch(`${uri}/posts/${post._id}/like`, {
-      method: 'POST',
-      mode: 'cors',
-      cache: 'default',
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-        'Authorization': `Bearer ${token}`
+    try {
+      const res = await fetch(`${uri}/posts/${post._id}/like`, {
+        method: 'POST',
+        mode: 'cors',
+        cache: 'default',
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+          'Authorization': `Bearer ${token}`
+        }
+      })
+      if (res.status === 200) {
+        const data = await res.json();
+        setLiked(true);
+        setLikeId(data._id);
+        console.log(data);
+      } else {
+        notify('You must be logged in to do that!');
       }
-    })     
-    .then(res => res.json(res))
-    .then(res => {
-      likeId.current = res.like._id;
-      setLiked((liked) => !liked);
-      console.log(res);
-    })
-    .catch(err => console.log(err))
+    } catch (err) {
+      console.log(err);
+    }
   }
   
   const removeLike = async () => {
-    const data = {
-      like_id : likeId.current
-    }
-    fetch(`${uri}/posts/${post._id}/unlike`, {
-      method: 'POST',
-      mode: 'cors',
-      cache: 'default',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-        'Authorization': `Bearer ${token}`
+    try {
+      const payload = {
+        like_id : likeId
       }
-    })     
-    .then(res => res.json(res))
-    .then(res => {
-      setLiked((liked) => !liked);
-      console.log(res);
-    })
-    .catch(err => console.log(err));
+      const res = await fetch(`${uri}/posts/${post._id}/unlike`, {
+        method: 'POST',
+        mode: 'cors',
+        cache: 'default',
+        body: JSON.stringify(payload),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+          'Authorization': `Bearer ${token}`
+        }
+      })
+      const data = await res.json();
+      setLiked(false);
+      setLikeId(null);
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   useEffect(() => {
-    likes?.forEach((like) => {
-      if (like.liker === user._id) {
-        likeId.current = like._id;
-        setLiked(true);
-      };
-    })
-  })
+    if (post) {
+      setPostId(post._id)
+    }
+  }, [post])
 
   if (!post) return 'Loading...'
   
@@ -98,21 +116,21 @@ export const Post = () => {
               <img src={likeBtn} alt="like" />
             </div>
           )}
-          <h2>comments</h2>
-          { comments && comments.length > 0 ? (
-            comments.map((comment) => {
-              return (
-                <>
-                  <Comment key={comment._id} comment={comment} />
-                </>
-              )
-            })
-          ) : (
-            null
-          )}
-          <CommentForm />
+          { post ? (<CommentSection notify={notify} postid={post._id} />) : ( null )}
         </div>
       </div>
+      <ToastContainer
+        position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable={false}
+        pauseOnHover
+        theme="dark"
+      />
     </>
   )
 }

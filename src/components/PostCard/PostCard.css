@@ -4,9 +4,9 @@
   border: solid 0.8px #d8d8d8bd;
   box-shadow: 4px 4px 8px 0px rgba(0,0,0,0.46);
   margin-bottom: 1.25rem;
-  max-width: 600px;
+  min-width: 100%;
+  max-width: 80vw;
   padding: 0.25em;
-  height: fit-content;
   text-decoration: none;
   color: inherit;
 }
@@ -66,4 +66,12 @@
 .post-card-header, .post-card-body{
   margin-left: 0.75rem;
   margin-right: 0.75rem;
+}
+
+@media screen and (min-width: 800px) {
+  .post-card {
+    width: 500px;
+    min-height: 250px;
+    align-items: stretch;
+  }
 }

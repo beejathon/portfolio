@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
 import { useAuthToken } from "../../hooks/useAuthToken";
 import "./CommentForm.css"
+import { useAuthUser } from "../../hooks/useAuthUser";
+import { useComments } from "../../hooks/useComments";
 
-export const CommentForm = () => {
-  const [text, setText] = useState([]);
-  const { postid } = useParams();
+export const CommentForm = ({ notify, postid }) => {
+  const [text, setText] = useState('');
   const token = useAuthToken();
+  const user = useAuthUser();
+  const { setComments } = useComments();
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -15,23 +17,57 @@ export const CommentForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = {
-      comment: text
-    }
-    const uri = 'https://blog-boyz.up.railway.app/api';
-    fetch(`${uri}/posts/${postid}/comments`, {
-      method: 'POST',
-      mode: 'cors',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-        'Authorization': `Bearer ${token}`
+    try {
+      const payload = {
+        comment: text
       }
+      const uri = 'https://blog-boyz.up.railway.app/api';
+      const res = await fetch(`${uri}/posts/${postid}/comments`, {
+        method: 'POST',
+        mode: 'cors',
+        body: JSON.stringify(payload),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+          'Authorization': `Bearer ${token}`
+        }
+      })
+      if (res.status === 200) {
+        const data = await res.json();
+        resetForm(data.comment_created)
+        console.log(data.comment_created)
+      } else if (res.status === 401) {
+        notify('You must be logged in to do that!');
+      } else {
+        notify('Something went wrong.')
+      }
+    } catch (err) {
+      console.log(err)
+    }
+    setText('');
+  }
+
+  const resetForm = (comment) => {
+    const temp = {
+      commenter: { userName: user.userName },
+      comment: comment.comment,
+      date_formatted: comment.date_formatted,
+      post: comment.post
+    }
+    setComments((prev) => {
+      let newComments;
+      if (prev.length > 0) {
+        newComments = [
+          ...prev,
+          temp
+        ]
+      } else {
+        newComments = [
+          temp
+        ]
+      }
+      return newComments;
     })
-    .then(res => res.json())
-    .then(res => console.log(res))
-    .catch(err => console.log(err));
-    setText([]);
+    
   }
 
   return (

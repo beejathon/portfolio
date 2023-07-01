@@ -1,23 +1,55 @@
-import { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { useAuthUser } from "./useAuthUser";
 
-export const useLikes = ({ postid }) => {
-  const [likes, setLikes] = useState(null);
+const Context = React.createContext(null)
+
+export const LikesProvider = ({ children }) => {
+  const [liked, setLiked] = useState(false);
+  const [likeId, setLikeId] = useState(null);
+  const [postId, setPostId] = useState(null);
+  const user = useAuthUser();
 
   useEffect(() => {
     const uri = 'https://blog-boyz.up.railway.app/api';
-    function fetchData() {
-      fetch(`${uri}/posts/${postid}/likes`, {
-        method: 'GET',
-        mode: 'cors',
-        cache: 'default',
-      })
-      .then(data => data.json())
-      .then(data => setLikes(data))
-      .catch(err => console.log(err))
+    async function checkLikes() {
+      try {
+        let likes = undefined;
+        const res = await fetch(`${uri}/posts/${postId}/likes`, {
+          method: 'GET',
+          mode: 'cors',
+          cache: 'default',
+        })
+        const data = await res.json();
+        likes = data;
+        if (likes.length && user) {
+          likes?.forEach((like) => {
+            if (like.liker === user._id) {
+              setLiked(true);
+              setLikeId(like._id);
+            };
+          })
+        }
+      } catch (err) {
+        console.log(err);
+      }
     }
-    
-    fetchData();
-  }, [postid])
+    checkLikes();
+  }, [postId, user])
 
-  return likes;
+  return (
+    <Context.Provider 
+      value={{ 
+        liked, 
+        setLiked, 
+        likeId, 
+        setLikeId,
+        postId,
+        setPostId,
+       }}
+    >
+      {children}
+    </Context.Provider>
+  ) 
 }
+
+export const useLikes = () => useContext(Context);

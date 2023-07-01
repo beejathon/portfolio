@@ -25,7 +25,7 @@
   margin-bottom: 1rem;
 }
 
-.post-content > p > img {
+img {
   width: 100%;
   height: auto;
   object-fit: contain;
@@ -37,11 +37,38 @@
   gap: 0.25rem;
 }
 
-.post-footer > h2 {
-  text-transform: uppercase;
-  font-size: 18px;
-}
 
 .like-btn {
+  align-self: flex-start;
+}
+
+.like-btn img {
   cursor: pointer;
+  object-fit: contain;
+  height: 30px;
+}
+
+@media screen and (min-width: 800px) {
+  .post {
+    width: 80vw;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin: auto;
+  }
+  .post-title {
+    font-size: 32px;
+  }
+  .post-subtitle {
+    font-size: 20px;
+  }
+  .post-content {
+    font-size: 18px;
+  }
+  p {
+    display: flex;
+  }
+  img {
+    max-width: fit-content;
+    margin: auto;
+  }
 }

@@ -1,23 +1,39 @@
-import { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
-export const useComments = ({ postid }) => {
-  const [comments, setComments] = useState();
+const Context = React.createContext(null)
 
+export const CommmentsProvider = ({ children }) => {
+  const [comments, setComments] = useState([]);
+  const [postId, setPostId] = useState(null);
+  
   useEffect(() => {
     const uri = 'https://blog-boyz.up.railway.app/api';
-    async function fetchData() {
-      fetch(`${uri}/posts/${postid}/comments`, {
-        method: 'GET',
-        mode: 'cors',
-        cache: 'default',
-      })
-      .then(res => res.json())
-      .then(res => setComments(res))
-      .catch(err => console.log(err));
+    async function fetchComments() {
+      try {
+        const res = await fetch(`${uri}/posts/${postId}/comments`, {
+          method: 'GET',
+          mode: 'cors',
+          cache: 'default',
+        })
+        const data = await res.json();
+        setComments(data);
+      } catch (err) {
+        console.log(err)
+      }
     }
-    
-    fetchData();
-  }, [postid])
+    fetchComments();
+  }, [postId])
 
-  return comments;
+  return (
+    <Context.Provider
+      value={{
+        comments,
+        setComments,
+        setPostId
+      }}>
+      {children}
+    </Context.Provider>
+  )
 }
+
+export const useComments = () => useContext(Context);

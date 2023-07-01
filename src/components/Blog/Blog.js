@@ -18,7 +18,7 @@ export const Blog = () => {
 
   useEffect(() => {
     if (user) {
-      setIsLoggedIn(true)
+      setIsLoggedIn((true))
     }
   }, [user])
 
@@ -40,14 +40,15 @@ export const Blog = () => {
           </>
         )}
       </div>
+      <h2 className="heading">latest posts</h2>
       <div className="posts">
-      {posts.map((post) => {
+      {posts.slice(0).reverse().map((post) => {
         return (
-          <>
+          <div key={post._id}>
             <Link to={`/portfolio/blog/${post._id}`} className="post-link">
-              <PostCard key={post._id} post={post} />
+              <PostCard post={post} />
             </Link>
-          </>
+          </div>
         )
       })}
       </div>
