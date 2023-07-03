@@ -21,13 +21,13 @@ export const About = () => {
       <section>
       <Fade duration={3000} cascade damping={0.1}>
         <p>
-          I am a self-taught web developer originally from the San Francisco Bay Area. In my past lives I've been a Math teacher, a poet, and a forklift driver. With a diverse background in education, creative writing and logistics, I am well placed to contribute to any team or project with a unique skillset.
+          I am a self-taught web developer originally from the San Francisco Bay Area. In past lives I've been a Math & ESL teacher, a poet, and a forklift driver. With a background in education, creative writing and logistics, I am well placed to contribute to any team or project with a diverse, well-rounded skillset.
         </p>
         <p>
-          My focus so far has been front-end development in React but I am also familiar with MERN (mongoDB/Express/React/Node) and the Jamstack, having built a REST API for the blog section on this site. That said, I am constantly learning and improving and am fully willing and able to dive head first into any tech-stack. 
+          My focus so far has been front-end React development but I am also familiar with MERN (mongoDB/Express/React/Node) and the Jamstack, having built a REST API for the blog section on this site. That said, I am constantly learning and improving and am fully willing and able to dive head first into any tech-stack. 
         </p>
         <p>
-          As a former educator, I bring a sensitvity to language, logic and structure that has not only helped me to read and write code but also to communicate abstract or technical concepts to non-technical audiences. I've also found my experience with process improvement and proofreading / editing to be a valuable insight into debugging, code reviews and the general software development life cycle.
+          As a former educator, I bring a sensitvity to language, logic and structure that has not only helped me to read and write code but also to communicate abstract or technical concepts to non-technical audiences. I've also found my experience with process improvement and proofreading / editing to be a valuable insight into debugging, testing and the general software development life cycle.
         </p>
         <p>
           Before moving to Glasgow I lived in Hanoi, Vietnam for six years. Having lived and worked in different places I am comfortable integrating and adapting to a variety of workplaces and company cultures. I'm also a husband and new father and am excited to build a life here in the UK with my family.

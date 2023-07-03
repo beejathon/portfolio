@@ -20,10 +20,10 @@ export const Projects = () => {
           <h3>Blog API</h3>
           <div className="card-links">
             <a href="https://github.com/beejathon/blog-api" target="_blank" rel="noreferrer">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="" />            
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" className="card-link-img" />
             </a>
             <a href="https://beejathon.github.io/portfolio/" target="_blank" rel="noreferrer">
-              <img src={linkIcon} alt='' />
+              <img src={linkIcon} alt='' className="card-link-img" />
             </a>
           </div>
         </div>
@@ -44,10 +44,10 @@ export const Projects = () => {
         <div className="card-header">
           <h3>galore</h3>
           <div className="card-links">
-            <a href="https://github.com/beejathon/galore-theme-test" target="_blank" rel="noreferrer">
+            <a href="https://github.com/galoreclub/galore-theme-test" target="_blank" rel="noreferrer">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="" />            
             </a>
-            <a href="https://galore-theme-test.myshopify.com/" target="_blank" rel="noreferrer">
+            <a href="https://galore.club/" target="_blank" rel="noreferrer">
               <img src={linkIcon} alt='' />
             </a>
           </div>
@@ -124,7 +124,7 @@ export const Projects = () => {
           </div>
         </div>
         <div className="card-body">
-          <p>A mock e-commerce web page for Croc shoes. Utilizes The Sneaker Database API to fetch and dynamically display products.</p>
+          <p>A mock e-commerce store for Croc shoes. Utilizes The Sneaker Database API to fetch and dynamically display products.</p>
         </div>
         <div className="card-tools">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="" />
@@ -138,10 +138,10 @@ export const Projects = () => {
         <div className="card-header">
           <h3>Battleship</h3>
           <div className="card-links">
-            <a href="https://github.com/beejathon/notbadreads" target="_blank" rel="noreferrer">
+            <a href="https://github.com/beejathon/battleship" target="_blank" rel="noreferrer">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="" />            
             </a>
-            <a href="https://beejathon.github.io/notbadreads/" target="_blank" rel="noreferrer">
+            <a href="https://beejathon.github.io/battleship/" target="_blank" rel="noreferrer">
               <img src={linkIcon} alt='' />
             </a>
           </div>
@@ -163,10 +163,10 @@ export const Projects = () => {
         <div className="card-header">
           <h3>To-do List</h3>
           <div className="card-links">
-            <a href="https://github.com/beejathon/notbadreads" target="_blank" rel="noreferrer">
+            <a href="https://github.com/beejathon/todo-list" target="_blank" rel="noreferrer">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="" />            
             </a>
-            <a href="https://beejathon.github.io/notbadreads/" target="_blank" rel="noreferrer">
+            <a href="https://beejathon.github.io/todo-list/" target="_blank" rel="noreferrer">
               <img src={linkIcon} alt='' />
             </a>
           </div>

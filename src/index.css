@@ -18,6 +18,11 @@ code {
     monospace;
 }
 
+& > * {
+  flex-grow: 1;
+}
+
+
 .App {
   display: flex;
   flex-direction: column;
