@@ -14,26 +14,29 @@ import { SignIn } from "./components/SignIn/SignIn";
 import { Home } from "./components/Home/Home";
 import { LikesProvider } from "./hooks/useLikes";
 import { CommmentsProvider } from "./hooks/useComments";
+import { AuthProvider } from "./hooks/useAuthProvider";
 
 export const App = () => {
   return (
     <div className="App">
-      <PostsProvider>
-        <CommmentsProvider>
-          <LikesProvider>
-            <Header />
-            <Routes>
-              <Route path="/portfolio/" element={<Home />} />
-              <Route path="/portfolio/about" element={<About />} />
-              <Route path="/portfolio/projects" element={<Projects />} />
-              <Route path="/portfolio/blog" element={<Blog />} />
-              <Route path="/portfolio/blog/:postid" element={<Post />} />
-              <Route path="/portfolio/blog/signin" element={<SignIn />} />
-            </Routes>
-            <Footer />
-          </LikesProvider>
-        </CommmentsProvider>
-      </PostsProvider>
+      <AuthProvider>
+        <PostsProvider>
+          <CommmentsProvider>
+            <LikesProvider>
+              <Header />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:postid" element={<Post />} />
+                <Route path="/signin" element={<SignIn />} />
+              </Routes>
+              <Footer />
+            </LikesProvider>
+          </CommmentsProvider>
+        </PostsProvider>
+      </AuthProvider>
     </div>
   );
 }

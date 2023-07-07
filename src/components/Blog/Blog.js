@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { usePosts } from "../../hooks/usePosts";
 import { PostCard } from "../PostCard/PostCard";
 import { Link } from "react-router-dom";
 import "./Blog.css"
-import { useAuthUser } from "../../hooks/useAuthUser";
+import { useAuth } from "../../hooks/useAuthProvider";
+import { usePosts } from "../../hooks/usePosts";
 
 export const Blog = () => {
-  const user = useAuthUser();
+  const { 
+    user,
+    setUser,
+    setToken
+  } = useAuth();
   const posts = usePosts();
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const signOut = () => {
     localStorage.removeItem('user');
     localStorage.removeItem('token');
+    setUser(null);
+    setToken(null);
     setIsLoggedIn(false);
   }
 
@@ -34,7 +40,7 @@ export const Blog = () => {
         ) 
         : ( 
           <>
-            <Link to={'/portfolio/blog/signin'}>
+            <Link to={'/signin'}>
               <button>Sign In</button>
             </Link>
           </>
@@ -43,13 +49,17 @@ export const Blog = () => {
       <h2 className="heading">latest posts</h2>
       <div className="posts">
       {posts.slice(0).reverse().map((post) => {
-        return (
-          <div key={post._id}>
-            <Link to={`/portfolio/blog/${post._id}`} className="post-link">
-              <PostCard post={post} />
-            </Link>
-          </div>
-        )
+        if (post.published === true) {
+          return (
+            <div key={post._id}>
+              <Link to={`/blog/${post._id}`} className="post-link">
+                <PostCard post={post} />
+              </Link>
+            </div>
+          )
+        } else {
+          return null;
+        }
       })}
       </div>
     </div>

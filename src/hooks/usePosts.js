@@ -7,14 +7,15 @@ export const PostsProvider = ({ children }) => {
   const [posts, setPosts] = useState();
 
   useEffect(() => {
-    const uri = 'https://blog-boyz.up.railway.app/api';
+    const uri = process.env.REACT_APP_API_URI;
     fetch(`${uri}/posts`, {
       method: 'GET',
       mode: 'cors',
       cache: 'default',
     })
     .then(data => data.json())
-    .then(data => setPosts(data));
+    .then(data => setPosts(data))
+    .catch(err => console.log(err));
   }, [])
 
   return (

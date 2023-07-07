@@ -10,6 +10,11 @@
   justify-content: flex-end;
   text-decoration: none;
   margin-bottom: -1rem;
+  width: 100%;
+}
+
+.sign-in-link button {
+  margin-right: 0;
 }
 
 .sign-in-link > a {

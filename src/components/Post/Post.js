@@ -4,11 +4,11 @@ import { useParams } from "react-router-dom";
 import likeBtn from "../../assets/like.png"
 import likedBtn from "../../assets/liked.png"
 import "./Post.css"
-import { useAuthToken } from "../../hooks/useAuthToken";
 import { useLikes } from "../../hooks/useLikes";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { CommentSection } from "../CommentSection/CommentSection";
+import { useAuth } from "../../hooks/useAuthProvider";
 
 export const Post = () => {
   const post = usePost(useParams());
@@ -19,7 +19,7 @@ export const Post = () => {
     setLikeId,
     setPostId,
   } = useLikes();
-  const token = useAuthToken();
+  const { token } = useAuth();
   
   const notify = (message) => {
     toast(message, {
@@ -34,7 +34,7 @@ export const Post = () => {
     })
   };
 
-  const uri = 'https://blog-boyz.up.railway.app/api';
+  const uri = process.env.REACT_APP_API_URI;
   const addLike = async () => {
     try {
       const res = await fetch(`${uri}/posts/${post._id}/like`, {
@@ -51,8 +51,10 @@ export const Post = () => {
         setLiked(true);
         setLikeId(data._id);
         console.log(data);
-      } else {
+      } else if (res.status === 401) {
         notify('You must be logged in to do that!');
+      } else {
+        console.log(res);
       }
     } catch (err) {
       console.log(err);
@@ -87,7 +89,7 @@ export const Post = () => {
     if (post) {
       setPostId(post._id)
     }
-  }, [post])
+  }, [post, setPostId])
 
   if (!post) return 'Loading...'
   

@@ -20,7 +20,7 @@ export const Projects = () => {
           <h3>Blog API</h3>
           <div className="card-links">
             <a href="https://github.com/beejathon/blog-api" target="_blank" rel="noreferrer">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" className="card-link-img" />
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" className="card-link-img" alt="" />
             </a>
             <a href="https://beejathon.github.io/portfolio/" target="_blank" rel="noreferrer">
               <img src={linkIcon} alt='' className="card-link-img" />

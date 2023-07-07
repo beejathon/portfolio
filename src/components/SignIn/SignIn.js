@@ -2,12 +2,28 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./SignIn.css"
 import { Register } from "../Register/Register";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useAuth } from "../../hooks/useAuthProvider";
 
 export const SignIn = () => {
-  const [username, setUsername] = useState(null);
-  const [password, setPassword] = useState(null);
-  const [message, setMessage] = useState(null);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const { setUser, setToken} = useAuth();
   const navigate = useNavigate();
+
+  const notify = (message) => {
+    toast(message, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+      progress: undefined,
+      theme: "dark",
+    })
+  };
 
   const onChangeUsername = (e) => {
     e.preventDefault();
@@ -20,33 +36,38 @@ export const SignIn = () => {
   }
 
   const handleSubmit = async () => {
-    const uri = 'https://blog-boyz.up.railway.app/api';
-    const data = {
-      username: username,
-      password: password,
-    }
+    const uri = process.env.REACT_APP_API_URI;
     fetch(`${uri}/users/login`, {
       method:'POST',
       mode: 'cors',
-      body: JSON.stringify(data),
       headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      }
+        'Content-type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams({
+        'username': username,
+        'password': password
+      })
+      .toString()
     })
     .then(res => res.json())
     .then(res => {
       if (res.token) {
-        localStorage.setItem('token', res.token);
-        localStorage.setItem('user', JSON.stringify(res.user));
-        setUsername(null);
-        setPassword(null);
-        setMessage(null);
-        navigate('/portfolio/blog');
+        signUserIn(res);
       } else {
-        setMessage(res.message)
+        notify(res.error);
       }
     })
     .catch(err => console.log(err))
+  }
+
+  const signUserIn = (res) => {
+    localStorage.setItem('user', JSON.stringify(res.user));
+    localStorage.setItem('token', res.token);
+    setUser(res.user);
+    setToken(res.token);
+    setUsername('');
+    setPassword('');
+    navigate('/blog');
   }
 
   return (
@@ -69,10 +90,21 @@ export const SignIn = () => {
           onClick={handleSubmit}>
             Sign In
         </button>
-        <div hidden={ message ? false : true}>{message}</div>
       </div>
       <h2>New User</h2>
-      <Register />
+      <Register notify={notify} />
+      <ToastContainer
+        position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable={false}
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   )
 }

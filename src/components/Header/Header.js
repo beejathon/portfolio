@@ -7,16 +7,16 @@ export const Header = () => {
     <>
       <header className="header">
         <nav>
-          <Link to='/portfolio'>
+          <Link to='/'>
             <span className="nav-link">home</span>
           </Link>
-          <Link to='/portfolio/about'>
+          <Link to='/about'>
             <span className="nav-link">about</span>
           </Link>
-          <Link to='/portfolio/projects'>
+          <Link to='/projects'>
             <span className="nav-link">work</span>
           </Link>
-          <Link to='/portfolio/blog'>
+          <Link to='/blog'>
             <span className="nav-link blog-link">blog</span>
           </Link>
         </nav>

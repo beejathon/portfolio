@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Register.css"
+import { useAuth } from "../../hooks/useAuthProvider";
 
-export const Register = () => {
+export const Register = ({ notify }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConf, setPasswordConf] = useState('');
-  const [email, setEmail] = useState('')
-  const [message, setMessage] = useState(null);
+  const [email, setEmail] = useState('');
+  const { setUser, setToken } = useAuth();
   const navigate = useNavigate();
 
   const onChangeUsername = (e) => {
@@ -31,7 +32,7 @@ export const Register = () => {
   }
 
   const handleSubmit = async () => {
-    const uri = 'https://blog-boyz.up.railway.app/api';
+    const uri = process.env.REACT_APP_API_URI;
     const data = {
       username: username,
       email: email,
@@ -49,19 +50,26 @@ export const Register = () => {
     .then(res => res.json())
     .then(res => {
       if (res.token) {
-        localStorage.setItem('user', JSON.stringify(res.user));
-        localStorage.setItem('token', res.token);
-        setUsername('');
-        setEmail('');
-        setPassword('');
-        setPasswordConf('');
-        setMessage('');
-        navigate('/portfolio/blog');
+        signUserIn(res);
       } else {
-        setMessage(res.errors)
+        res.errors.forEach((err) => {
+          notify(err.msg)
+        })
       }
     })
     .catch(err => console.log(err))
+  }
+
+  const signUserIn = (res) => {
+    localStorage.setItem('user', JSON.stringify(res.user));
+    localStorage.setItem('token', res.token);
+    setUser(res.user);
+    setToken(res.token);
+    setUsername('');
+    setEmail('');
+    setPassword('');
+    setPasswordConf('');
+    navigate('/blog');
   }
 
   return (
@@ -95,15 +103,6 @@ export const Register = () => {
           onClick={handleSubmit}>
             Register
         </button>
-        <ul hidden={ message ? false : true}>
-          {message ? (
-            message.map((err) => {
-              return <li>{err.msg}</li>
-            })
-          ) : (
-            null
-          )}
-        </ul>
       </div>
     </>
   )

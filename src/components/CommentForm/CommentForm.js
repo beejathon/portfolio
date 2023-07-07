@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import { useAuthToken } from "../../hooks/useAuthToken";
 import "./CommentForm.css"
-import { useAuthUser } from "../../hooks/useAuthUser";
 import { useComments } from "../../hooks/useComments";
+import { useAuth } from "../../hooks/useAuthProvider";
 
 export const CommentForm = ({ notify, postid }) => {
   const [text, setText] = useState('');
-  const token = useAuthToken();
-  const user = useAuthUser();
+  const { user, token } = useAuth();
   const { setComments } = useComments();
 
   const handleChange = (e) => {
@@ -21,7 +19,7 @@ export const CommentForm = ({ notify, postid }) => {
       const payload = {
         comment: text
       }
-      const uri = 'https://blog-boyz.up.railway.app/api';
+      const uri = process.env.REACT_APP_API_URI;
       const res = await fetch(`${uri}/posts/${postid}/comments`, {
         method: 'POST',
         mode: 'cors',
@@ -47,8 +45,10 @@ export const CommentForm = ({ notify, postid }) => {
   }
 
   const resetForm = (comment) => {
+    const userName = user ? user.userName : null;
+    console.log(user)
     const temp = {
-      commenter: { userName: user.userName },
+      commenter: { userName: userName },
       comment: comment.comment,
       date_formatted: comment.date_formatted,
       post: comment.post
@@ -65,9 +65,9 @@ export const CommentForm = ({ notify, postid }) => {
           temp
         ]
       }
+      console.log(newComments)
       return newComments;
     })
-    
   }
 
   return (
@@ -85,6 +85,5 @@ export const CommentForm = ({ notify, postid }) => {
         </button>
       </div>
     </>
-    
   )
 }
