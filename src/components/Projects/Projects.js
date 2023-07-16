@@ -17,18 +17,18 @@ export const Projects = () => {
       <div className="card">
         <img src={blog} alt="" />
         <div className="card-header">
-          <h3>Blog API</h3>
+          <h3>Full-stack MERN Blog</h3>
           <div className="card-links">
             <a href="https://github.com/beejathon/blog-api" target="_blank" rel="noreferrer">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" className="card-link-img" alt="" />
             </a>
-            <a href="https://beejathon.github.io/portfolio/" target="_blank" rel="noreferrer">
+            <a href="https://beejathon.github.io/portfolio/#/portfolio/blog" target="_blank" rel="noreferrer">
               <img src={linkIcon} alt='' className="card-link-img" />
             </a>
           </div>
         </div>
         <div className="card-body">
-          <p>A REST API backend serving JSON for the blog section of this site. Built with two front-ends: one client for reading and commenting and a second CMS for publishing and editing posts/comments.</p>
+          <p>A full-stack blogging application utilizing a REST API only backend. Built with two front-ends: one client for reading and commenting and a second CMS for publishing and editing posts/comments.</p>
         </div>
         <div className="card-tools">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original-wordmark.svg" alt="" />
