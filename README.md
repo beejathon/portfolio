@@ -7,6 +7,7 @@ A simple portfolio site to showcase my web development work. Redesigned and refa
 Penultimate project in the NodeJS course of the Full Stack JavaScript curriculum @ [The Odin Project](https://www.theodinproject.com/lessons/nodejs-blog-api).
 
 Link to Blog API @ [https://github.com/beejathon/blog-api](https://github.com/beejathon/blog-api)
+
 Link to Blog CMS @ [https://github.com/beejathon/blog-cms](https://github.com/beejathon/blog-cms)
 
 Live demo @ [https://beejathon.github.io/portfolio/#/portfolio/blog](https://beejathon.github.io/portfolio/#/portfolio/blog)
