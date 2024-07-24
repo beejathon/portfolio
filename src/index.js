@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { App } from "./App";
-import { BrowserRouter as Router } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
 
 const BASE_URL =
   process.env.NODE_ENV === "production" ? process.env.PUBLIC_URL : "";
