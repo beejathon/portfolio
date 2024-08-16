@@ -1,46 +1,46 @@
-import { createBrowserRouter } from "react-router-dom";
-import Layout from "../components/Layout";
-import ErrorPage from "../pages/ErrorPage";
-import BlogPage from "../pages/BlogPage";
-import AboutPage from "../pages/AboutPage";
-import WorkPage from "../pages/WorkPage";
-import PostPage, { postLoader } from "../pages/PostPage";
+import { createBrowserRouter } from 'react-router-dom'
+import Layout from '../components/Layout'
+import ErrorPage from '../pages/ErrorPage'
+import HomePage from '../pages/HomePage'
+import WorkPage from '../pages/WorkPage'
+import BlogPage, { blogLoader } from '../pages/BlogPage'
+import PostPage, { postLoader } from '../pages/PostPage'
+import SignInPage from '../pages/SignInPage'
 
-const uri = import.meta.env.VITE_API_URI;
+export const uri =
+  process.env.NODE_ENV === 'production'
+    ? import.meta.env.VITE_API_URI
+    : 'http://localhost:8080/api'
 
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Layout />,
     errorElement: <ErrorPage />,
     children: [
-      { index: true, element: <h1>Home</h1> },
+      { index: true, element: <HomePage /> },
       {
-        path: "about",
-        element: <AboutPage />,
-      },
-      {
-        path: "work",
+        path: 'work',
         element: <WorkPage />,
       },
       {
-        path: "blog",
+        path: '/blog',
         element: <BlogPage />,
         loader: async () => {
-          return fetch(`${uri}/posts`, {
-            method: "GET",
-            mode: "cors",
-            cache: "default",
-          });
+          return blogLoader()
         },
       },
       {
-        path: "/blog/:id",
+        path: '/blog/:id',
         element: <PostPage />,
         loader: async ({ params }) => {
-          return postLoader(params.id);
+          return postLoader(params.id)
         },
+      },
+      {
+        path: '/signin',
+        element: <SignInPage />,
       },
     ],
   },
-]);
+])
