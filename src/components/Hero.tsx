@@ -1,4 +1,4 @@
-import { TextEffect } from './TextEffect'
+import { TextEffect } from './ui/TextEffect'
 
 const Hero = () => {
   return (

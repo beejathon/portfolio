@@ -1,4 +1,4 @@
-import { InView } from './InView'
+import { InView } from './ui/InView'
 
 const aboutContent = [
   {

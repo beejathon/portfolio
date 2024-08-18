@@ -1,10 +1,4 @@
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerFooter,
-  DrawerTrigger,
-} from '../@/components/ui/Drawer'
+import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from './ui/Drawer'
 
 const Header = () => {
   return (
@@ -17,7 +11,10 @@ const Header = () => {
           <a href="/#about" className="text-xl font-light text-eucalyptus-500">
             About
           </a>
-          <a href="/" className="text-xl font-light text-eucalyptus-500">
+          <a
+            href="/projects"
+            className="text-xl font-light text-eucalyptus-500"
+          >
             Projects
           </a>
           <a href="/" className="text-xl font-light text-eucalyptus-500">
@@ -42,18 +39,21 @@ const Header = () => {
           </DrawerTrigger>
           <DrawerContent>
             <DrawerClose>
-              <div className="flex justify-end mr-10 text-eucalyptus-500 font-bold">
+              <div className="mr-10 flex justify-end font-bold text-eucalyptus-500">
                 <span className="material-symbols-outlined">close</span>
               </div>
             </DrawerClose>
-            <nav className="flex flex-col gap-10 mt-10 justify-evenly pl-6">
+            <nav className="mt-10 flex flex-col justify-evenly gap-10 pl-6">
               <a
                 href="/#about"
                 className="text-xl font-light text-eucalyptus-500"
               >
                 About
               </a>
-              <a href="/" className="text-xl font-light text-eucalyptus-500">
+              <a
+                href="/projects"
+                className="text-xl font-light text-eucalyptus-500"
+              >
                 Projects
               </a>
               <a href="/" className="text-xl font-light text-eucalyptus-500">

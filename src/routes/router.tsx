@@ -2,10 +2,10 @@ import { createBrowserRouter } from 'react-router-dom'
 import Layout from '../components/Layout'
 import ErrorPage from '../pages/ErrorPage'
 import HomePage from '../pages/HomePage'
-import WorkPage from '../pages/WorkPage'
+import ProjectsPage from '../pages/ProjectsPage'
 import BlogPage, { blogLoader } from '../pages/BlogPage'
 import PostPage, { postLoader } from '../pages/PostPage'
-import SignInPage from '../pages/SignInPage'
+import SignInPage, { signInAction } from '../pages/SignInPage'
 
 export const uri =
   process.env.NODE_ENV === 'production'
@@ -20,8 +20,8 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       {
-        path: 'work',
-        element: <WorkPage />,
+        path: '/projects',
+        element: <ProjectsPage />,
       },
       {
         path: '/blog',
@@ -40,6 +40,7 @@ export const router = createBrowserRouter([
       {
         path: '/signin',
         element: <SignInPage />,
+        action: signInAction,
       },
     ],
   },
