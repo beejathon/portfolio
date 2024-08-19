@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Form, useActionData } from 'react-router-dom'
+import PasswordInput from './ui/PasswordInput'
 
-export const Register = () => {
+export const RegisterForm = () => {
   const [username, setUsername] = useState<string | undefined>('')
   const [email, setEmail] = useState<string | undefined>('')
   const [password, setPassword] = useState<string | undefined>('')
@@ -56,28 +57,28 @@ export const Register = () => {
           required
         />
         {errors?.email && errors.intent === 'register' && <p>{errors.email}</p>}
-        <label htmlFor="password">Password</label>
-        <input
+        <PasswordInput
+          label="password"
           type="password"
           name="password"
           id="password"
           value={password}
           onChange={onChangePassword}
-          minLength={6}
+          minLength={8}
           maxLength={20}
-          required
+          required={true}
         />
         {errors?.password && errors.intent === 'register' && (
           <p>{errors.password}</p>
         )}
-        <label htmlFor="passwordConfirm">Confirm Password</label>
-        <input
+        <PasswordInput
+          label="Confirm Password"
           type="password"
           name="passwordConfirm"
           id="passwordConfirm"
           value={passwordConfirm}
           onChange={onChangePasswordConfirm}
-          required
+          required={true}
         />
         {errors?.passwordConfirm && errors.intent === 'register' && (
           <p>{errors.passwordConfirm}</p>
@@ -95,4 +96,4 @@ export const Register = () => {
   )
 }
 
-export default Register
+export default RegisterForm

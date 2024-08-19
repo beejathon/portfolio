@@ -1,10 +1,21 @@
-const ErrorPage = () => {
-  return (
-    <div>
-      <h1>404 Not Found</h1>
-      <p>Sorry, the page you are looking for does not exist.</p>
-    </div>
-  );
-};
+import { isRouteErrorResponse, useRouteError } from 'react-router-dom'
 
-export default ErrorPage;
+const ErrorPage = () => {
+  let error = useRouteError()
+  console.log(error)
+
+  if (isRouteErrorResponse(error)) {
+    return (
+      <div>
+        <h1>Oops!</h1>
+        <h2>{error.status}</h2>
+        <p>{error.statusText}</p>
+        {error.data?.message && <p>{error.data.message}</p>}
+      </div>
+    )
+  } else {
+    return <div>Oops</div>
+  }
+}
+
+export default ErrorPage

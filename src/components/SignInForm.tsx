@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Form, useActionData } from 'react-router-dom'
 
-export const SignIn = () => {
+export const SignInForm = () => {
   const [username, setUsername] = useState<string | undefined>('')
   const [password, setPassword] = useState<string | undefined>('')
   const errors: any = useActionData()
@@ -27,9 +27,6 @@ export const SignIn = () => {
           value={username}
           onChange={onChangeUsername}
         />
-        {errors?.username && errors.intent === 'signin' && (
-          <p>{errors.username}</p>
-        )}
         <label htmlFor="password">Password</label>
         <input
           type="password"
@@ -38,9 +35,6 @@ export const SignIn = () => {
           value={password}
           onChange={onChangePassword}
         />
-        {errors?.password && errors.intent === 'signin' && (
-          <p>{errors.password}</p>
-        )}
         <button
           type="submit"
           name="intent"
@@ -54,4 +48,4 @@ export const SignIn = () => {
   )
 }
 
-export default SignIn
+export default SignInForm

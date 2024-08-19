@@ -1,34 +1,38 @@
+import { NavLink } from 'react-router-dom'
 import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from './ui/Drawer'
 
 const Header = () => {
   return (
     <header className="flex w-full justify-between py-4">
       <div className="ml-10 flex items-center gap-10">
-        <a href="/" className="text-2xl font-bold text-eucalyptus-500">
+        <NavLink to="/" className="text-2xl font-bold text-eucalyptus-500">
           Bee-jay Paiz
-        </a>
+        </NavLink>
         <nav className="hidden gap-10 lg:flex">
-          <a href="/#about" className="text-xl font-light text-eucalyptus-500">
+          <NavLink
+            to="/#about"
+            className="text-xl font-light text-eucalyptus-500"
+          >
             About
-          </a>
-          <a
-            href="/projects"
+          </NavLink>
+          <NavLink
+            to="/projects"
             className="text-xl font-light text-eucalyptus-500"
           >
             Projects
-          </a>
-          <a href="/" className="text-xl font-light text-eucalyptus-500">
+          </NavLink>
+          <NavLink to="/" className="text-xl font-light text-eucalyptus-500">
             Contact
-          </a>
+          </NavLink>
         </nav>
       </div>
       <div className="mr-10 hidden items-center gap-10 lg:flex">
-        <a href="/" className="text-xl font-light text-eucalyptus-500">
+        <NavLink to="/" className="text-xl font-light text-eucalyptus-500">
           Resume
-        </a>
-        <a href="/blog" className="text-xl font-light text-eucalyptus-500">
+        </NavLink>
+        <NavLink to="/blog" className="text-xl font-light text-eucalyptus-500">
           Blog
-        </a>
+        </NavLink>
       </div>
       <div className="mr-10 flex items-center gap-10 lg:hidden">
         <Drawer>
@@ -44,30 +48,36 @@ const Header = () => {
               </div>
             </DrawerClose>
             <nav className="mt-10 flex flex-col justify-evenly gap-10 pl-6">
-              <a
-                href="/#about"
+              <NavLink
+                to="/#about"
                 className="text-xl font-light text-eucalyptus-500"
               >
                 About
-              </a>
-              <a
-                href="/projects"
+              </NavLink>
+              <NavLink
+                to="/projects"
                 className="text-xl font-light text-eucalyptus-500"
               >
                 Projects
-              </a>
-              <a href="/" className="text-xl font-light text-eucalyptus-500">
+              </NavLink>
+              <NavLink
+                to="/"
+                className="text-xl font-light text-eucalyptus-500"
+              >
                 Contact
-              </a>
-              <a href="/" className="text-xl font-light text-eucalyptus-500">
+              </NavLink>
+              <NavLink
+                to="/"
+                className="text-xl font-light text-eucalyptus-500"
+              >
                 Resume
-              </a>
-              <a
-                href="/blog"
+              </NavLink>
+              <NavLink
+                to="/blog"
                 className="text-xl font-light text-eucalyptus-500"
               >
                 Blog
-              </a>
+              </NavLink>
             </nav>
           </DrawerContent>
         </Drawer>

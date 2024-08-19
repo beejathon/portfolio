@@ -29,6 +29,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       expiration !== undefined &&
       expiration >= Date.now()
     ) {
+      console.log('doing stuff')
       setToken(localToken)
       setUser(JSON.parse(localUser))
     } else {

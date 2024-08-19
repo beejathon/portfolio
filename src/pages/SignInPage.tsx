@@ -3,8 +3,8 @@ import { useActionData, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuthProvider'
 import { uri } from '@/routes/router'
 import { ActionFunctionArgs } from 'react-router-dom'
-import SignIn from '@/components/SignIn'
-import Register from '@/components/Register'
+import { SignInForm } from '@/components/SignInForm'
+import { RegisterForm } from '@/components/RegisterForm'
 
 interface User {
   _id: string
@@ -15,7 +15,7 @@ interface User {
 
 const SignInPage = () => {
   const actionData: any = useActionData()
-  const { setUser, setToken } = useAuth()
+  const { user, setUser, setToken } = useAuth()
   const navigate = useNavigate()
 
   const signUserIn = (user: User, token: string) => {
@@ -32,12 +32,23 @@ const SignInPage = () => {
     }
   }, [actionData])
 
-  return (
-    <div className="flex flex-col gap-10 font-mono text-eucalyptus-700">
-      <SignIn />
-      <Register />
-    </div>
-  )
+  if (user) {
+    return (
+      <div className="flex flex-col gap-10 font-mono text-eucalyptus-700">
+        <h1>Welcome, {user.userName}</h1>
+        <p>You are now signed in.</p>
+      </div>
+    )
+  }
+
+  if (!user) {
+    return (
+      <div className="flex flex-col gap-10 font-mono text-eucalyptus-700">
+        <SignInForm />
+        <RegisterForm />
+      </div>
+    )
+  }
 }
 
 export const signInAction = async ({ request }: ActionFunctionArgs) => {
@@ -46,25 +57,14 @@ export const signInAction = async ({ request }: ActionFunctionArgs) => {
   let errors: any = {}
 
   // form validation
-
-  if (intent === 'signin') {
-    if (typeof data.username !== 'string' || data.username.length < 3) {
-      errors.username =
-        'That username is too short. Please use at least 3 characters.'
-    }
-    if (typeof data.password !== 'string' || data.password.length < 6) {
-      errors.password = 'Password must be > 6 characters'
-    }
-    if (Object.keys(errors).length) {
-      errors.intent = 'signin'
-      return errors
-    }
-  }
-
   if (intent === 'register') {
     if (typeof data.username !== 'string' || data.username.length < 3) {
       errors.username =
-        'That username is too short. Please use at least 3 characters.'
+        'That username is too short. Please use between 3 and 10 characters.'
+    }
+    if (typeof data.username !== 'string' || data.username.length > 10) {
+      errors.username =
+        'That username is too long. Please use between 3 and 10 characters.'
     }
     if (typeof data.email !== 'string' || !data.email.includes('@')) {
       errors.email = 'Please enter a valid email address'
@@ -77,11 +77,12 @@ export const signInAction = async ({ request }: ActionFunctionArgs) => {
     }
     if (Object.keys(errors).length) {
       errors.intent = 'register'
+      console.log(errors)
       return errors
     }
   }
 
-  // POST to api for sigin or register request
+  // POST request to api to sign in or register
 
   if (intent === 'signin') {
     const res = await fetch(`${uri}/users/login`, {

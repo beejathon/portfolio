@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { useLoaderData } from 'react-router-dom'
 import LikeButton from '../components/LikeButton'
 import Comments from '../components/Comments'
@@ -6,20 +5,22 @@ import { uri } from '../routes/router'
 
 export interface PostPageData {
   post: any
-  likes: string[]
-  comments: string[]
+  likes: any[]
+  comments: any[]
 }
 
 const PostPage = () => {
   const data = useLoaderData() as PostPageData
 
-  useEffect(() => {
-    console.log(data)
-  })
-
   return (
-    <div>
-      <h1>Post Page</h1>
+    <div className="md:px-30 flex flex-col items-center justify-center px-10 py-10 sm:px-20 lg:px-40 xl:px-72">
+      <h1 className="my-10 text-center font-mono text-4xl font-bold uppercase text-eucalyptus-500">
+        {data.post.title}
+      </h1>
+      <article
+        dangerouslySetInnerHTML={{ __html: data.post.sanitizedHtml }}
+        className="prose text-chatelle-200 prose-img:mx-auto prose-img:max-w-lg"
+      />
       <LikeButton {...data} />
       {data.comments.length ? <Comments {...data} /> : ''}
     </div>
