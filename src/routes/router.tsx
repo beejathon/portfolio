@@ -4,7 +4,7 @@ import ErrorPage from '../pages/ErrorPage'
 import HomePage from '../pages/HomePage'
 import ProjectsPage from '../pages/ProjectsPage'
 import BlogPage, { blogLoader } from '../pages/BlogPage'
-import PostPage, { postLoader } from '../pages/PostPage'
+import PostPage, { postActions, postLoader } from '../pages/PostPage'
 import SignInPage, { signInAction } from '../pages/SignInPage'
 
 export const uri =
@@ -36,6 +36,7 @@ export const router = createBrowserRouter([
         loader: async ({ params }) => {
           return postLoader(params.id)
         },
+        action: postActions,
       },
       {
         path: '/signin',
