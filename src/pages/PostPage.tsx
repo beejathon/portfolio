@@ -3,6 +3,7 @@ import LikeButton from '../components/LikeButton'
 import Comments from '../components/Comments'
 import { uri } from '../routes/router'
 import { useFetcher } from 'react-router-dom'
+import { useEffect } from 'react'
 
 export interface PostPageData {
   post: any
@@ -107,31 +108,35 @@ export const postActions = async ({ request }: ActionFunctionArgs) => {
   }
 
   // form validation
-  // if (intent === 'comment') {
-  //   if (typeof data.comment !== 'string' || data.comment.length < 3) {
-  //     errors.comment = 'Comment must be at least 3 characters long.'
-  //   }
-  //   if (Object.keys(errors).length) {
-  //     return { errors }
-  //   }
-  //   try {
-  //     const res = await fetch(`${uri}/posts/${data.post_id}/comments`, {
-  //       method: 'POST',
-  //       mode: 'cors',
-  //       cache: 'default',
-  //       body: JSON.stringify(data),
-  //       headers: {
-  //         'Content-type': 'application/json; charset=UTF-8',
-  //       },
-  //     })
-  //     if (res.status === 200) {
-  //       return { success: 'Comment added!' }
-  //     } else {
-  //       return { error: 'There was an error adding your comment.' }
-  //     }
-  //   } catch (error) {
-  //     return { error: 'There was an error adding your comment.' }
-  //   }
-  // }
+  if (intent === 'comment') {
+    if (typeof data.comment !== 'string' || data.comment.length < 3) {
+      errors.comment = 'Comment must be at least 3 characters long.'
+    }
+    if (Object.keys(errors).length) {
+      return { errors }
+    }
+    try {
+      const payload = {
+        comment: data.comment,
+      }
+      const res = await fetch(`${uri}/posts/${data.post_id}/comments`, {
+        method: 'POST',
+        mode: 'cors',
+        body: JSON.stringify(payload),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+          Authorization: `Bearer ${data.token}`,
+        },
+      })
+      if (res.status === 200) {
+        console.log('Comment added!')
+        return { success: 'Comment added!' }
+      } else {
+        return { error: 'There was an error adding your comment.' }
+      }
+    } catch (error) {
+      return { error: 'There was an error adding your comment.' }
+    }
+  }
 }
 export default PostPage

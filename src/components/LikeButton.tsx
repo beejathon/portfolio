@@ -1,20 +1,22 @@
 import { useEffect, useState } from 'react'
 import { PostPageData } from '../pages/PostPage'
 import { useAuth } from '@/hooks/useAuthProvider'
-import { uri } from '@/routes/router'
 import { useFetcher } from 'react-router-dom'
 
 const LikeButton = ({ likes, post }: PostPageData) => {
   const [liked, setLiked] = useState(false)
+  const [likeId, setLikeId] = useState('')
   const { user, token } = useAuth()
   const fetcher = useFetcher({ key: 'like-post' })
 
   useEffect(() => {
-    console.log(likes)
+    setLiked(false)
     if (likes.length > 0 && user) {
+      setLiked(false)
       likes.forEach((like) => {
         if (like.liker === user._id) {
           setLiked(true)
+          setLikeId(like._id)
         }
       })
     }
@@ -24,7 +26,7 @@ const LikeButton = ({ likes, post }: PostPageData) => {
     <>
       {liked ? (
         <fetcher.Form method="post">
-          <input type="hidden" name="like_id" value={liked ? user._id : ''} />
+          <input type="hidden" name="like_id" value={liked ? likeId : ''} />
           <input type="hidden" name="post_id" value={post._id} />
           <input type="hidden" name="token" value={token ?? ''} />
           <button
