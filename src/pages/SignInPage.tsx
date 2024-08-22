@@ -5,6 +5,7 @@ import { uri } from '@/routes/router'
 import { ActionFunctionArgs } from 'react-router-dom'
 import { SignInForm } from '@/components/SignInForm'
 import { RegisterForm } from '@/components/RegisterForm'
+import { toast } from 'react-toastify'
 
 interface User {
   _id: string
@@ -77,7 +78,6 @@ export const signInAction = async ({ request }: ActionFunctionArgs) => {
     }
     if (Object.keys(errors).length) {
       errors.intent = 'register'
-      console.log(errors)
       return errors
     }
   }
@@ -98,6 +98,7 @@ export const signInAction = async ({ request }: ActionFunctionArgs) => {
     if (!res.ok) {
       throw res
     }
+    toast.success('You are now signed in!')
     return await res.json()
   }
 
@@ -118,6 +119,7 @@ export const signInAction = async ({ request }: ActionFunctionArgs) => {
     if (!res.ok) {
       throw res
     }
+    toast.success('You are now registered!')
     return await res.json()
   }
 }

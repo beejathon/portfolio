@@ -1,9 +1,8 @@
-import { ActionFunctionArgs, useLoaderData } from 'react-router-dom'
+import { ActionFunctionArgs, redirect, useLoaderData } from 'react-router-dom'
 import LikeButton from '../components/LikeButton'
 import Comments from '../components/Comments'
 import { uri } from '../routes/router'
-import { useFetcher } from 'react-router-dom'
-import { useEffect } from 'react'
+import { toast } from 'react-toastify'
 
 export interface PostPageData {
   post: any
@@ -13,7 +12,6 @@ export interface PostPageData {
 
 const PostPage = () => {
   const data = useLoaderData() as PostPageData
-  const fetcher = useFetcher({ key: 'like-post' })
 
   return (
     <div className="md:px-30 flex flex-col items-center justify-center px-10 py-10 sm:px-20 lg:px-40 xl:px-72">
@@ -69,10 +67,13 @@ export const postActions = async ({ request }: ActionFunctionArgs) => {
         },
       })
       if (res.status === 200) {
+        toast.success('Post liked!')
         return { success: 'Post liked!' }
       } else if (res.status === 401) {
-        return { error: 'You must be logged in to do that!' }
+        toast.error('You must be logged in to do that!')
+        return redirect('/signin')
       } else {
+        toast.error('There was an error liking this post.')
         return { error: 'There was an error liking this post.' }
       }
     } catch (error) {
@@ -96,10 +97,13 @@ export const postActions = async ({ request }: ActionFunctionArgs) => {
         },
       })
       if (res.status === 200) {
+        toast.success('Post unliked!')
         return { success: 'Post unliked!' }
       } else if (res.status === 401) {
-        return { error: 'You must be logged in to do that!' }
+        toast.error('You must be logged in to do that!')
+        return redirect('/signin')
       } else {
+        toast.error('There was an error unliking this post.')
         return { error: 'There was an error unliking this post.' }
       }
     } catch (error) {
@@ -129,9 +133,13 @@ export const postActions = async ({ request }: ActionFunctionArgs) => {
         },
       })
       if (res.status === 200) {
-        console.log('Comment added!')
+        toast.success('Comment added!')
         return { success: 'Comment added!' }
+      } else if (res.status === 401) {
+        toast.error('You must be logged in to do that!')
+        return redirect('/signin')
       } else {
+        toast.error('There was an error adding your comment.')
         return { error: 'There was an error adding your comment.' }
       }
     } catch (error) {
