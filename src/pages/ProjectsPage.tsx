@@ -17,30 +17,36 @@ const ProjectsPage = () => {
         {projectsContent.map((project) => (
           <Card key={project.title}>
             <CardHeader>
-              <CardTitle className="text-3xl">{project.title}</CardTitle>
-              <div className="flex justify-end gap-4">
-                {project.ghRepo && (
+              <div className="flex items-center justify-between">
+                <CardTitle className="text-center text-3xl font-light">
+                  {project.title}
+                </CardTitle>
+                <div className="flex justify-end gap-4 px-4">
+                  {project.ghRepo && (
+                    <a
+                      href={project.ghRepo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-eucalyptus-500"
+                    >
+                      <img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                        alt=""
+                        className="h-6"
+                      />
+                    </a>
+                  )}
                   <a
-                    href={project.ghRepo}
+                    href={project.link}
                     target="_blank"
                     rel="noreferrer"
                     className="text-eucalyptus-500"
                   >
-                    <img
-                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
-                      alt=""
-                      className="h-6"
-                    />
+                    <span className="material-symbols-outlined">
+                      open_in_new
+                    </span>
                   </a>
-                )}
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-eucalyptus-500"
-                >
-                  <span className="material-symbols-outlined">open_in_new</span>
-                </a>
+                </div>
               </div>
             </CardHeader>
             <CardContent>
@@ -115,6 +121,8 @@ const projectsContent = [
     description: `A goodreads clone where users can search a database of books, organize a personal library, write reviews and interact with other users. Built with React and utilizes Firebase for backend-as-a-service.`,
     preview:
       'https://res.cloudinary.com/dgclfs5cd/image/upload/v1724803154/vj9bkcyzo7piblxnl38c.mp4',
+    ghRepo: 'https://github.com/beejathon/notbadreads',
+    link: 'https://beejathon.github.io/notbadreads/',
     techIcons: [
       'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
       'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain-wordmark.svg',

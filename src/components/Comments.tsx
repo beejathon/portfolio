@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { PostPageData } from '../pages/PostPage'
 import { useFetcher } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuthProvider'
+import Button from './ui/Button'
 
 const Comments = ({ comments, post }: PostPageData) => {
   const fetcher = useFetcher({ key: 'comment-post' })
@@ -17,7 +18,6 @@ const Comments = ({ comments, post }: PostPageData) => {
 
   return (
     <div className="w-full">
-      <h2 className="my-10 text-chatelle-100">Comments</h2>
       <fetcher.Form method="post" ref={formRef}>
         <textarea
           name="comment"
@@ -26,15 +26,11 @@ const Comments = ({ comments, post }: PostPageData) => {
         />
         <input type="hidden" name="post_id" value={post._id} />
         <input type="hidden" name="token" value={token ?? ''} />
-        <button
-          type="submit"
-          name="intent"
-          value="comment"
-          className="mt-4 h-12 w-full text-chatelle-50"
-        >
-          Submit
-        </button>
+        <Button type="submit" name="intent" value="comment" text="Submit" />
       </fetcher.Form>
+      <h2 className="my-10 text-xl font-semibold text-eucalyptus-500">
+        Comments
+      </h2>
       <ul className="flex flex-col gap-10 text-chatelle-50">
         {comments.map((comment: any) => (
           <li key={comment._id}>

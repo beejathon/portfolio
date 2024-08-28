@@ -20,10 +20,12 @@ const PostPage = () => {
       </h1>
       <article
         dangerouslySetInnerHTML={{ __html: data.post.sanitizedHtml }}
-        className="prose text-chatelle-200 prose-img:mx-auto prose-img:max-w-lg"
+        className="prose max-w-[90ch] leading-10 text-chatelle-200 prose-img:mx-auto prose-img:max-w-xs lg:prose-img:max-w-md"
       />
-      <LikeButton {...data} />
-      {data.comments.length ? <Comments {...data} /> : ''}
+      <div className="flex-start w-full">
+        <LikeButton {...data} />
+        {data.comments.length ? <Comments {...data} /> : ''}
+      </div>
     </div>
   )
 }

@@ -1,5 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from './ui/Drawer'
+import AuthButton from './AuthButton'
+import cv from '../assets/bj_cv_webdev.pdf'
 
 const Header = () => {
   return (
@@ -21,18 +23,19 @@ const Header = () => {
           >
             Projects
           </NavLink>
-          <NavLink to="/" className="text-xl font-light text-eucalyptus-500">
-            Contact
-          </NavLink>
+          <button
+            onClick={() => window.open(cv)}
+            className="text-xl font-light text-eucalyptus-500"
+          >
+            CV
+          </button>
         </nav>
       </div>
       <div className="mr-10 hidden items-center gap-10 lg:flex">
-        <NavLink to="/" className="text-xl font-light text-eucalyptus-500">
-          Resume
-        </NavLink>
         <NavLink to="/blog" className="text-xl font-light text-eucalyptus-500">
           Blog
         </NavLink>
+        <AuthButton />
       </div>
       <div className="mr-10 flex items-center gap-10 lg:hidden">
         <Drawer>
@@ -64,13 +67,7 @@ const Header = () => {
                 to="/"
                 className="text-xl font-light text-eucalyptus-500"
               >
-                Contact
-              </NavLink>
-              <NavLink
-                to="/"
-                className="text-xl font-light text-eucalyptus-500"
-              >
-                Resume
+                CV
               </NavLink>
               <NavLink
                 to="/blog"
@@ -78,6 +75,9 @@ const Header = () => {
               >
                 Blog
               </NavLink>
+              <div>
+                <AuthButton />
+              </div>
             </nav>
           </DrawerContent>
         </Drawer>

@@ -8,40 +8,12 @@ import {
   CardHeader,
   CardTitle,
 } from '../components/ui/Card'
-import { useAuth } from '@/hooks/useAuthProvider'
 
 const BlogPage = () => {
   const posts: any = useLoaderData()
-  const { user } = useAuth()
-  const { setToken, setUser } = useAuth()
 
   return (
     <div className="md:px-30 flex flex-col items-center justify-center px-10 py-10 sm:px-20 lg:px-40 xl:px-72">
-      {!user ? (
-        <Link to="/signin">
-          <button className="rounded-lg bg-mountain-mist-700 px-4 py-2 text-eucalyptus-600">
-            Sign In
-          </button>
-        </Link>
-      ) : (
-        ''
-      )}
-      {user ? (
-        <button
-          className="rounded-lg bg-mountain-mist-700 px-4 py-2 text-eucalyptus-600"
-          value="Sign Out"
-          onClick={() => {
-            localStorage.removeItem('token')
-            localStorage.removeItem('user')
-            setToken('')
-            setUser(null)
-          }}
-        >
-          Sign Out
-        </button>
-      ) : (
-        ''
-      )}
       <h1 className="my-10 text-center font-mono text-4xl font-bold uppercase text-eucalyptus-500">
         Recent Posts
       </h1>

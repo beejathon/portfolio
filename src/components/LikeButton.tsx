@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { PostPageData } from '../pages/PostPage'
 import { useAuth } from '@/hooks/useAuthProvider'
 import { useFetcher } from 'react-router-dom'
+import Button from './ui/Button'
 
 const LikeButton = ({ likes, post }: PostPageData) => {
   const [liked, setLiked] = useState(false)
@@ -46,9 +47,10 @@ const LikeButton = ({ likes, post }: PostPageData) => {
             type="submit"
             name="intent"
             value="like"
-            className="h-20 cursor-pointer text-2xl text-white"
+            className="h-20 transform cursor-pointer text-white transition duration-500 ease-in-out hover:scale-110"
           >
-            🤍
+            <span className="text-xl">🤍</span>{' '}
+            <span className="pl-2 text-xs">Like this post</span>
           </button>
         </fetcher.Form>
       )}
