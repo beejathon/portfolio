@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Form, useActionData } from 'react-router-dom'
 import PasswordInput from './ui/PasswordInput'
+import Button from './ui/Button'
 
 export const RegisterForm = () => {
   const [username, setUsername] = useState<string | undefined>('')
@@ -42,8 +43,8 @@ export const RegisterForm = () => {
           minLength={3}
           maxLength={20}
           required
+          className="w-full border-[0.4px] border-border/50 p-2 text-[12px] text-black md:text-xs lg:text-sm"
         />
-
         {errors?.username && errors.intent === 'register' && (
           <p>{errors.username}</p>
         )}
@@ -55,10 +56,11 @@ export const RegisterForm = () => {
           value={email}
           onChange={onChangeEmail}
           required
+          className="w-full border-[0.4px] border-border/50 p-2 text-[12px] text-black md:text-xs lg:text-sm"
         />
         {errors?.email && errors.intent === 'register' && <p>{errors.email}</p>}
         <PasswordInput
-          label="password"
+          label="Password"
           type="password"
           name="password"
           id="password"
@@ -83,14 +85,7 @@ export const RegisterForm = () => {
         {errors?.passwordConfirm && errors.intent === 'register' && (
           <p>{errors.passwordConfirm}</p>
         )}
-        <button
-          type="submit"
-          name="intent"
-          value="register"
-          className="m-auto rounded-lg bg-chatelle-700 px-4 py-2"
-        >
-          Register
-        </button>
+        <Button type="submit" name="intent" value="register" text="Register" />
       </Form>
     </>
   )

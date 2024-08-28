@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { Form, useActionData } from 'react-router-dom'
+import PasswordInput from './ui/PasswordInput'
+import Button from './ui/Button'
 
 export const SignInForm = () => {
   const [username, setUsername] = useState<string | undefined>('')
@@ -26,23 +28,20 @@ export const SignInForm = () => {
           id="username"
           value={username}
           onChange={onChangeUsername}
+          className="w-full border-[0.4px] border-border/50 p-2 text-[12px] text-black md:text-xs lg:text-sm"
         />
-        <label htmlFor="password">Password</label>
-        <input
+        <PasswordInput
+          label="Password"
           type="password"
           name="password"
           id="password"
           value={password}
           onChange={onChangePassword}
+          minLength={8}
+          maxLength={20}
+          required={true}
         />
-        <button
-          type="submit"
-          name="intent"
-          value="signin"
-          className="m-auto rounded-lg bg-chatelle-700 px-4 py-2"
-        >
-          Sign In
-        </button>
+        <Button type="submit" name="intent" value="signin" text="Sign In" />
       </Form>
     </>
   )

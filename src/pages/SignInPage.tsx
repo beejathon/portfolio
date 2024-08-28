@@ -35,7 +35,7 @@ const SignInPage = () => {
 
   if (user) {
     return (
-      <div className="flex flex-col gap-10 font-mono text-eucalyptus-700">
+      <div className="flex flex-col items-center justify-center gap-10 py-10 font-mono text-eucalyptus-700">
         <h1>Welcome, {user.userName}</h1>
         <p>You are now signed in.</p>
       </div>
@@ -44,7 +44,10 @@ const SignInPage = () => {
 
   if (!user) {
     return (
-      <div className="flex flex-col gap-10 font-mono text-eucalyptus-700">
+      <div className="flex flex-col items-center justify-center gap-10 py-10 font-mono text-eucalyptus-700">
+        <h1 className="text-2xl font-bold text-eucalyptus-500">
+          Sign in or Register
+        </h1>
         <SignInForm />
         <RegisterForm />
       </div>

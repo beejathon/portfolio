@@ -17,10 +17,40 @@ const ProjectsPage = () => {
         {projectsContent.map((project) => (
           <Card key={project.title}>
             <CardHeader>
-              <CardTitle>{project.title}</CardTitle>
+              <CardTitle className="text-3xl">{project.title}</CardTitle>
+              <div className="flex justify-end gap-4">
+                {project.ghRepo && (
+                  <a
+                    href={project.ghRepo}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-eucalyptus-500"
+                  >
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                      alt=""
+                      className="h-6"
+                    />
+                  </a>
+                )}
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-eucalyptus-500"
+                >
+                  <span className="material-symbols-outlined">open_in_new</span>
+                </a>
+              </div>
             </CardHeader>
             <CardContent>
-              <img src={project.gifPreview} alt={project.title} />
+              <video
+                src={project.preview}
+                autoPlay
+                loop
+                muted
+                className="w-full pb-4"
+              />
               <CardDescription>{project.description}</CardDescription>
             </CardContent>
             <CardFooter>
@@ -37,11 +67,12 @@ const ProjectsPage = () => {
 
 const projectsContent = [
   {
-    title: 'galore',
-    description: `Landing page for a circular fashion company. Took Figma design from concept to completion. Utilized Nuxt.js for SSR and DaisyUI / Tailwind CSS for styling.`,
-    gifPreview: 'https://via.placeholder.com/150',
+    title: 'galore Landing Page',
+    description: `Landing page for a circular fashion startup. Took Figma design from concept to completion. Utilized Nuxt.js for SSR and DaisyUI / Tailwind CSS for styling.`,
+    preview:
+      'https://res.cloudinary.com/dgclfs5cd/video/upload/f_auto:video,q_auto/ryfpvw85ha7gaqfqtwcg',
     ghRepo: '',
-    link: 'galore.club',
+    link: 'https://galore.club',
     techIcons: [
       `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nuxtjs/nuxtjs-plain-wordmark.svg`,
       'https://res.cloudinary.com/dgclfs5cd/image/upload/f_auto,q_auto/sttocfxsaaaexjtdbthv',
@@ -49,9 +80,25 @@ const projectsContent = [
     ],
   },
   {
+    title: 'galore Shopify Headless Custom Storefront',
+    description: `Custom storefront for a circular fashion startup. Frontend built with Vite + React utilizing Shopify Storefront API for business logic, Apollo Client to handle GraphQL data and Redux for state management. Styled with Tailwind CSS.`,
+    preview:
+      'https://res.cloudinary.com/dgclfs5cd/video/upload/f_auto:video,q_auto/xxrjvfdy7w44ltk9wvx7',
+    ghRepo: '',
+    link: 'https://galore-frontend-1ca0fcb7d916.herokuapp.com/',
+    techIcons: [
+      'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg',
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+      'https://res.cloudinary.com/dgclfs5cd/image/upload/f_auto,q_auto/tcjvasc3one2l0pjv1s6',
+      'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redux/redux-original.svg',
+      'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
+    ],
+  },
+  {
     title: 'MERN Blog',
     description: `Full-stack blogging app utilizing a REST API only backend. Built with two front-ends: a client for reading and commenting and a second CMS for publishing and editing posts/comments.`,
-    gifPreview: 'https://via.placeholder.com/150',
+    preview:
+      'https://res.cloudinary.com/dgclfs5cd/image/upload/v1724803153/asmrmdafcalpgsllkv9s.mp4',
     ghRepo: 'https://github.com/beejathon/blog-api',
     link: '/blog',
     techIcons: [
@@ -66,7 +113,8 @@ const projectsContent = [
   {
     title: 'notbadreads',
     description: `A goodreads clone where users can search a database of books, organize a personal library, write reviews and interact with other users. Built with React and utilizes Firebase for backend-as-a-service.`,
-    gifPreview: 'https://via.placeholder.com/150',
+    preview:
+      'https://res.cloudinary.com/dgclfs5cd/image/upload/v1724803154/vj9bkcyzo7piblxnl38c.mp4',
     techIcons: [
       'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
       'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain-wordmark.svg',

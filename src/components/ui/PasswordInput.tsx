@@ -28,13 +28,8 @@ export const PasswordInput = ({ label, ...props }: InputProps) => {
 
   return (
     <>
-      <div className="flex flex-col">
-        <label
-          className="font-helvetica-bold mb-0 text-sm"
-          htmlFor={props.id || props.name}
-        >
-          {label}
-        </label>
+      <div className="flex flex-col gap-4">
+        <label htmlFor={props.id || props.name}>{label}</label>
         <div className="relative m-0 flex w-full flex-row items-center p-0">
           <input
             {...props}
