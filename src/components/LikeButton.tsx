@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { PostPageData } from '../pages/PostPage'
 import { useAuth } from '@/hooks/useAuthProvider'
 import { useFetcher } from 'react-router-dom'
-import Button from './ui/Button'
 
 const LikeButton = ({ likes, post }: PostPageData) => {
   const [liked, setLiked] = useState(false)

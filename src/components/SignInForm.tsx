@@ -6,7 +6,6 @@ import Button from './ui/Button'
 export const SignInForm = () => {
   const [username, setUsername] = useState<string | undefined>('')
   const [password, setPassword] = useState<string | undefined>('')
-  const errors: any = useActionData()
 
   const onChangeUsername = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault()
