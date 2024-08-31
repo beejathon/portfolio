@@ -2,16 +2,16 @@ import { InView } from './ui/InView'
 
 const aboutContent = [
   {
-    content: `I'm a full-stack web developer based in Glasgow, Scotland with a unique blend of technical expertise and creative flair. My journey into the world of web development is built on a foundation in education and creative writing, which has shaped my approach to coding and design in distinct and meaningful ways.`,
+    content: `I'm a full-stack web developer based in Glasgow, Scotland with a unique blend of technical expertise and creative flair. In past lives I've been a Math & ESL teacher, a poet, and a forklift driver. With a diverse set of skills and experiences I approach web development from a fresh perspective to deliver innovative solutions.`,
   },
   {
-    content: `Before diving into the tech world, I spent several years immersed in education, where I developed a keen understanding of how to communicate complex ideas clearly and effectively. My experience in teaching has not only honed my ability to break down technical concepts for diverse audiences but also fueled my passion for creating user-friendly, intuitive web experiences.`,
+    content: `As a former educator, I bring a sensitivity to language, logic and structure that helps me to read and write code. My experience in teaching has not only honed my ability to break down technical concepts for diverse audiences but also underscored the importance of creating user-friendly, intuitive web experiences.`,
   },
   {
-    content: `In parallel, my background in creative writing has been instrumental in shaping my approach to web development. Writing taught me the power of narrative and the importance of engaging an audience—a lesson I carry into every project I undertake. Whether crafting compelling content for websites or designing interactive elements that tell a story, I leverage my writing skills to create web solutions that resonate with users on a deeper level.`,
+    content: `In parallel, my background in creative writing has taught me the power of narrative and the importance of engaging an audience. Whether crafting compelling content for websites or designing interactive elements that tell a story, I leverage my writing skills to create web solutions that will resonate with users. I also find my experience with proofreading and editing to be a valuable insight into debugging, testing and the general software development life cycle.`,
   },
   {
-    content: `As a developer, I am proficient in HTML, CSS, JavaScript, and various modern frameworks. I thrive on bringing ideas to life through clean, efficient code and innovative design. My unique combination of skills allows me to approach web development from a holistic perspective, ensuring that each project I work on is not only technically sound but also rich in creativity and user engagement.`,
+    content: `As a developer, I am proficient in HTML, CSS, JavaScript, TypeScript and various modern frameworks like React, Next, Vue and Nuxt. I thrive on bringing ideas to life through clean, efficient code and innovative design.`,
   },
   {
     content: `I’m always eager to learn and embrace new challenges. Whether you're looking to build a dynamic website, improve your digital presence, or create content that connects with your audience, I'm here to help bring your vision to life. Let’s build something amazing together!`,
