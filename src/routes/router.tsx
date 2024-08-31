@@ -12,37 +12,42 @@ export const uri =
     ? import.meta.env.VITE_API_URI
     : 'http://localhost:8080/api'
 
-export const router = createBrowserRouter([
+export const router = createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: <Layout />,
+      errorElement: <ErrorPage />,
+      children: [
+        { index: true, element: <HomePage /> },
+        {
+          path: '/projects',
+          element: <ProjectsPage />,
+        },
+        {
+          path: '/blog',
+          element: <BlogPage />,
+          loader: async () => {
+            return blogLoader()
+          },
+        },
+        {
+          path: '/blog/:id',
+          element: <PostPage />,
+          loader: async ({ params }) => {
+            return postLoader(params.id)
+          },
+          action: postActions,
+        },
+        {
+          path: '/signin',
+          element: <SignInPage />,
+          action: signInAction,
+        },
+      ],
+    },
+  ],
   {
-    path: '/',
-    element: <Layout />,
-    errorElement: <ErrorPage />,
-    children: [
-      { index: true, element: <HomePage /> },
-      {
-        path: '/projects',
-        element: <ProjectsPage />,
-      },
-      {
-        path: '/blog',
-        element: <BlogPage />,
-        loader: async () => {
-          return blogLoader()
-        },
-      },
-      {
-        path: '/blog/:id',
-        element: <PostPage />,
-        loader: async ({ params }) => {
-          return postLoader(params.id)
-        },
-        action: postActions,
-      },
-      {
-        path: '/signin',
-        element: <SignInPage />,
-        action: signInAction,
-      },
-    ],
-  },
-])
+    basename: '/portfolio/',
+  }
+)
