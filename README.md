@@ -1,6 +1,6 @@
 # Portfolio
 
-View portfolio @ [https://beejathon.github.io/portfolio/#/portfolio](https://beejathon.github.io/portfolio/#/portfolio)
+View portfolio @ [https://paiz.dev](https://paiz.dev)
 
 A simple portfolio site to showcase my web development work. Redesigned and refactored to include a blog section, one of two front-ends for a full-stack application including a separate CMS front-end and an API only back-end.
 
