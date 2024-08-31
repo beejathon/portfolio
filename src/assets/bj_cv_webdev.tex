@@ -1,0 +1,197 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+    \textbf{\Huge \scshape Bee-jay Paiz } \\ \vspace{1pt}
+    \href{mailto:x@x.com}{{beejay@paiz.dev}} $|$ \small +447919510538 $|$ 
+    \href{https://linkedin.com/in/...}{{linkedin.com/in/bee-jay-paiz-aa20253a}} $|$
+    \href{https://github.com/...}{{github.com/beejathon}}
+\end{center}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Web Developer}{September 2024 -- Present}
+      {Nail Order}{Glasgow, UK}
+      \resumeItemListStart
+        \resumeItem{Optimized website performance by reducing reliance on third-party apps, leading to a significant improvement in loading page speed and overall user experience.}
+        \resumeItem{Enhanced image optimization techniques, including compression and proper formatting, resulting in faster load times and reduced bandwidth usage.}
+        \resumeItem{Performed rigorous tests and diagnostics to identify and address issues causing content layout shifts (CLS), ensuring a seamless and visually consistent browsing experience across all devices.}
+        \resumeItem{Implemented best practices for Shopify development, leading to streamlined code and reduced resource consumption, which contributed to improved site performance and scalability.}
+        \resumeItem{Collaborated with cross-functional teams to integrate performance optimization strategies into the overall development process, resulting in higher customer satisfaction and increased conversion rates.}
+    \resumeItemListEnd
+
+    \resumeSubheading
+      {Frontend Developer}{April 2023 -- Present}
+      {Galore}{London, UK (Remote)}
+      \resumeItemListStart
+        \resumeItem{Designed and launched a visually striking, fully responsive custom Shopify Liquid theme from Figma mockups, ensuring seamless user experience across all devices.}
+        \resumeItem{Developed and implemented the frontend for a custom Shopify storefront using the Shopify Storefront GraphQL API, enabling dynamic content delivery and enhanced user interaction}
+        \resumeItem{Refactored the landing page with NuxtJS, DaisyUI, and TailwindCSS to align with evolving business needs, resulting in improved performance and a more modern, user-friendly interface.}
+        \resumeItem{Collaborated with designers, developers, and key stakeholders to gather and translate business requirements into technical specifications, ensuring the final product met both aesthetic and functional goals.}
+    \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Full-stack Blog App} $|$ \emph{mongoDB, Express, React, NodeJS, TailwindCSS, React-Bootstrap}}{}
+          \resumeItemListStart
+            \resumeItem{Developed a full-stack blogging app using MERN stack, cleanly decoupling front-end from back-end}
+            \resumeItem{Implemented an API only backend to serve JSON to two front-ends: a client for viewing/commenting on posts and a CMS for publishing and editing posts/comments}
+            \resumeItem{Utilized PassportJS, JSON Web Token and bcrypt for secure user authentication and protected routes}
+          \resumeItemListEnd
+      
+      \resumeProjectHeading
+          {\textbf{notbadreads} $|$ \emph{React, Firebase, Tailwind CSS}}{}
+          \resumeItemListStart
+            \resumeItem{Developed a Goodreads clone where users can search for books, organize a personal library and interact with other users}
+            \resumeItem{Leveraged Google Books API for book data, allowing users to search and interact with a dynamic and robust database of books}
+            \resumeItem{Utilized Firebase for simple and secure authentication and Firestore back-end-as-a-service to persist user data}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Battleship} $|$ \emph{JavaScript, Jest, Webpack}}{}
+          \resumeItemListStart
+            \resumeItem{Developed a browser game based on the popular board game, following TDD best practices}
+            \resumeItem{Created unit tests with Jest for all core components of the game, ensuring code quality throughout development process}
+            \resumeItem{Built with focus on OOP and SOLID principles, keeping application logic separate from view/UI and encapsulating state}
+          \resumeItemListEnd
+          
+    \resumeSubHeadingListEnd
+
+%
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages and Frameworks}{: JavaScript, TypeScript, React, NextJS, VueJS, NuxtJS, Prisma, HTML, CSS, Node.js, ExpressJS, TailwindCSS, Material-UI, Bootstrap, SCSS} \\
+     \textbf{Data}{: Mongoose, MongoDB, GraphQL, MySQL} \\
+     \textbf{Developer Tools}{: Git, npm, VS Code, Jest, Vite, Webpack, React Testing Library, bash, Figma} \\
+    }}
+ \end{itemize}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {San Francisco State University}{San Francisco, CA}
+      {Bachelor of Arts in English: Creative Writing}{September 2010 -- July 2012}
+  \resumeSubHeadingListEnd
+
+%-------------------------------------------
+\end{document}
