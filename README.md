@@ -22,4 +22,4 @@ Live demo @ [https://beejathon.github.io/portfolio/#/portfolio/blog](https://bee
 
 ## Reflection
 
-The first refactor of my portfolio in 2023 added a blog section as part of a full stack app and was focused primarily on practicing the Context API and fetching and loading data performantly. On year later I've refactored with Vite + React + React Router Data API + Tailwind CSS + ShadCN. As I continue to progress and learn more I plan to refactor this portfolio to showcase my projects as well as my adoption of new tech.
+The first refactor of my portfolio in 2023 added a blog section as part of a full stack app and was focused primarily on practicing the Context API and fetching and loading data performantly. One year later I've refactored with Vite + React + React Router Data API + Tailwind CSS + ShadCN. As I continue to progress and learn more I plan to refactor this portfolio to showcase my projects as well as my adoption of new tech.
