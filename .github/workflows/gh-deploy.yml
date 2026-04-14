@@ -44,6 +44,8 @@ jobs:
           VITE_MAY_TARGET_LNG: ${{ vars.VITE_MAY_TARGET_LNG }}
           VITE_MAY_RADIUS_M: ${{ vars.VITE_MAY_RADIUS_M }}
           VITE_MAY_IMAGE_URL: ${{ vars.VITE_MAY_IMAGE_URL }}
+      - name: GitHub Pages SPA fallback
+        run: cp dist/index.html dist/404.html
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
