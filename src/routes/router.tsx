@@ -6,6 +6,7 @@ import ProjectsPage from '../pages/ProjectsPage'
 import BlogPage, { blogLoader } from '../pages/BlogPage'
 import PostPage, { postActions, postLoader } from '../pages/PostPage'
 import SignInPage, { signInAction } from '../pages/SignInPage'
+import May from '@/pages/May'
 
 export const uri =
   process.env.NODE_ENV === 'production'
@@ -42,6 +43,10 @@ export const router = createBrowserRouter([
         path: '/signin',
         element: <SignInPage />,
         action: signInAction,
+      },
+      {
+        path: '/may',
+        element: <May />,
       },
     ],
   },

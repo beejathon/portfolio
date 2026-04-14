@@ -39,6 +39,11 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+        env:
+          VITE_MAY_TARGET_LAT: ${{ vars.VITE_MAY_TARGET_LAT }}
+          VITE_MAY_TARGET_LNG: ${{ vars.VITE_MAY_TARGET_LNG }}
+          VITE_MAY_RADIUS_M: ${{ vars.VITE_MAY_RADIUS_M }}
+          VITE_MAY_IMAGE_URL: ${{ vars.VITE_MAY_IMAGE_URL }}
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
