@@ -1,10 +1,7 @@
 /// <reference types="vite/client" />
 
 interface ImportMetaEnv {
-  readonly VITE_MAY_TARGET_LAT?: string
-  readonly VITE_MAY_TARGET_LNG?: string
-  readonly VITE_MAY_RADIUS_M?: string
-  readonly VITE_MAY_IMAGE_URL?: string
+  readonly VITE_API_URI?: string
 }
 
 interface ImportMeta {
