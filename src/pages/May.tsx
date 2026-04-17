@@ -191,10 +191,21 @@ const May = () => {
         style={hiddenSectionStyle(revealA)}
       >
         <h2 className="mb-3 font-mono text-2xl font-semibold text-eucalyptus-400">
-          You made it!
+          You made it! Now let's go to where we can see the half of that one thing...
         </h2>
         <p className="font-mono leading-relaxed text-chatelle-100">
-          Now you've got to go to the Whangie and more shall be revealed...
+          That you stay holding up, no maybes no buts. <br />
+          Plus the other half, you know, the half nots? <br />
+          <a
+            href="https://genius.com/3000687/Kool-ad-open-letter/And-if-not-just-look-and-see-what-you-saw-and-with-that-saw-cut-yourself-in-half-and-two-halves-make-a-whole-so-climb-through-that"
+            target="_blank"
+            rel="noreferrer"
+            className="text-eucalyptus-400 underline"
+            >
+            And if not, just look and see what you saw. <br />
+            And with that saw cut yourself in half. <br />
+            And two halves make a whole so climb through that <br />
+          </a>.
           <img
             src={whangieImage}
             alt="Whangie"
@@ -214,8 +225,7 @@ const May = () => {
         style={hiddenSectionStyle(revealB)}
       >
         <h2 className="mb-3 font-mono text-2xl font-semibold text-eucalyptus-400">
-          It&apos;s weightier than Mount Tai but Lord knows you hold up half the
-          muhfuccin sky
+          Let a thousand flowers blossom
         </h2>
         <img
           src={bloomImage}
@@ -223,12 +233,9 @@ const May = () => {
           className="h-auto w-full rounded-xl"
         />
         <p className="font-mono leading-relaxed text-chatelle-100">
-          SIKE! i took that and recycled it from last time but it&apos;s worth
-          saying again!
-        </p>
-        <p className="font-mono text-xs leading-relaxed text-chatelle-50">
-          a large language model imposes itself at the winking bunghole of this
-          world historical conjuncture
+          I can't write poetry anymore so all I have is this message for you. 
+          I can only say it again and I'll say it a thousand times a thousand times over:
+          You are the love of my life and you brought me back from the dead.
         </p>
         {import.meta.env.DEV && revealB && reasonB !== 'none' ? (
           <p className="mt-4 font-mono text-xs text-mountain-mist-400">
