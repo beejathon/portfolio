@@ -161,7 +161,7 @@ const May = () => {
         >
           <img
             src={peopleImage}
-            alt=""
+            alt="Serve the people"
             className="max-h-[min(70vh,520px)] w-full object-cover"
             draggable={false}
           />
@@ -225,17 +225,30 @@ const May = () => {
         style={hiddenSectionStyle(revealB)}
       >
         <h2 className="mb-3 font-mono text-2xl font-semibold text-eucalyptus-400">
-          Let a thousand flowers blossom
+          Let a hundred flowers blossom and cover the sky
         </h2>
         <img
           src={bloomImage}
-          alt="Weightier than Mount Tai"
+          alt="Let a hundred flowers blossom and cover the sky"
           className="h-auto w-full rounded-xl"
         />
         <p className="font-mono leading-relaxed text-chatelle-100">
-          I can't write poetry anymore so all I have is this message for you. 
-          I can only say it again and I'll say it a thousand times a thousand times over:
-          You are the love of my life and you brought me back from the dead.
+          I can't write poetry anymore so all I have are these regular shmegular words for you. 
+          
+          I love you. I love you. I love you and also I love you.
+          
+          Thank you for being my best friend.
+          Thank you for being a comrade.
+          Thank you for showing our son how to climb trees,
+          how to walk without socks and shoes,
+          how to get down and dirty in the mud,
+          how to dance without irony,
+          how to listen to his emotions,
+          and all the endless other things I always forget to do.
+
+          You're so cool. You're so cool!
+
+          Plus you're the love of my life. You brought me back from the dead.
         </p>
         {import.meta.env.DEV && revealB && reasonB !== 'none' ? (
           <p className="mt-4 font-mono text-xs text-mountain-mist-400">
