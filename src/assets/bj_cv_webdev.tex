@@ -18,7 +18,10 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
-\input{glyphtounicode}
+\usepackage{iftex}
+\ifPDFTeX
+  \input{glyphtounicode}
+\fi
 
 
 %----------FONT OPTIONS----------
@@ -57,8 +60,9 @@
   \vspace{-4pt}\scshape\raggedright\large
 }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 
-% Ensure that generate pdf is machine readable/ATS parsable
-\pdfgentounicode=1
+\ifPDFTeX
+  \pdfgentounicode=1
+\fi
 
 %-------------------------
 % Custom commands
@@ -113,9 +117,9 @@
 
 \begin{center}
     \textbf{\Huge \scshape Bee-jay Paiz } \\ \vspace{1pt}
-    \href{mailto:x@x.com}{{beejay@paiz.dev}} $|$ \small +447919510538 $|$ 
-    \href{https://linkedin.com/in/...}{{linkedin.com/in/bee-jay-paiz-aa20253a}} $|$
-    \href{https://github.com/...}{{github.com/beejathon}}
+    \href{mailto:beejay@paiz.dev}{beejay@paiz.dev} $|$ \small +447919510538 $|$ 
+    \href{https://www.linkedin.com/in/bee-jay-paiz-aa20253a/}{linkedin.com/in/bee-jay-paiz-aa20253a} $|$
+    \href{https://github.com/beejathon}{github.com/beejathon}
 \end{center}
 
 %-----------EXPERIENCE-----------
@@ -126,11 +130,11 @@
       {Web Developer}{September 2024 -- Present}
       {Nail Order}{Glasgow, UK}
       \resumeItemListStart
-        \resumeItem{Optimized website performance by implementing lazy loading strategies for third-party apps and media, reducing the number of paid apps by recreating features through custom theme development. This led to significant improvements in loading times, reduced operating costs, and better overall site performance.}
-        \resumeItem{Improved Core Web Vitals scores by addressing all aspects, including optimizing images (compression, proper formatting) and resolving content layout shifts (CLS). Mobile scores improved from the 30s to the 60s, and desktop scores increased from the 40s to the 80s, resulting in faster page loads, smoother interactivity, and a more consistent user experience across devices.}
-        \resumeItem{Implemented Shopify development best practices, streamlining code, minimizing resource usage, and improving site performance and scalability, which contributed to more efficient development and a better user experience.}
-        \resumeItem{Developed new website features such as a free shipping progress bar, VAT toggle button, custom badges and labels, and a custom order history page, enhancing user engagement, increasing customer satisfaction, and driving higher conversion rates.}
-        \resumeItem{Collaborated with cross-functional teams to integrate business requirements and marketing strategies into the development lifecycle, enhancing site functionality and supporting continued growth. Additionally, created comprehensive documentation for all theme customizations, ensuring future developers and non-technical staff could easily understand and maintain the site.}
+        \resumeItem{Own custom Shopify Liquid theme and storefront UX: lazy-loading and asset discipline, image/CLS work for Core Web Vitals, and replacing paid third-party widgets with native theme patterns where it cut cost and load.}
+        \resumeItem{Shipped \textbf{Expo / React Native} client (Expo Router): single \textbf{Apollo} client with typed GraphQL codegen routing \textbf{Storefront API} vs \textbf{Customer Account API}; OAuth/PKCE login bridged to \textbf{Firebase} for app-only data; Shopify Checkout Sheet; \textbf{EAS} builds and OTA updates.}
+        \resumeItem{Built \textbf{Remix} Shopify embedded admin app (\textbf{Polaris}, App Bridge): \textbf{Customer Account UI extensions} and theme blocks; \textbf{Firestore} + Storage for operational workflows; \textbf{Mux} direct uploads + webhooks; Shopify webhooks for marketing consent sync and idempotent order-lifecycle pushes to the app.}
+        \resumeItem{Delivered \textbf{React Router 7} embedded app for bundle merchandising: bundle definitions as \textbf{Shopify metaobjects}, \textbf{Prisma} session storage, Fly.io deployment (Litestream-ready layout).}
+        \resumeItem{\textbf{Sanity v4} studio for structured content; Customer Account wishlist extension with server routes backed by \textbf{Firebase Admin}.}
     \resumeItemListEnd
 
     \resumeSubheading
@@ -171,9 +175,11 @@
 \section{Technical Skills}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
-     \textbf{Languages and Frameworks}{: JavaScript, TypeScript, Liquid, React, Next, Vue, Nuxt, Prisma, HTML, CSS, Node, Express, TailwindCSS, Bootstrap, SCSS} \\
-     \textbf{Data}{: Mongoose, MongoDB, GraphQL, MySQL} \\
-     \textbf{Developer Tools}{: Git, npm, VS Code, Jest, Vite, Webpack, Figma} \\
+     \textbf{Languages}{: TypeScript, JavaScript, Liquid, HTML, CSS/SCSS} \\
+     \textbf{Web \& mobile}{: React, React Native, Expo, Remix, React Router, Next.js, Vue, Nuxt, Node, Express, Tailwind CSS} \\
+     \textbf{Shopify}{: Themes, Storefront GraphQL, Customer Account API, embedded apps, Customer Account / checkout UI extensions, metaobjects, App Bridge, Polaris} \\
+     \textbf{Data \& APIs}{: GraphQL (Apollo, codegen), Firestore, MongoDB/Mongoose, Prisma, REST, MySQL} \\
+     \textbf{Platform}{: Firebase (Auth, Functions, Storage), Mux, Sanity CMS, Git, Vite, EAS, Jest, Figma} \\
     }}
  \end{itemize}
 
